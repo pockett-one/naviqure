@@ -2,7 +2,7 @@
 
 import { CORE_TEAM, BRAND_COLORS } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { User, Building2, Stethoscope, Briefcase } from "lucide-react";
+import { User, Building2, Stethoscope, Briefcase, Flag, FileCheck } from "lucide-react";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export function TeamSection() {
@@ -50,7 +50,7 @@ export function TeamSection() {
                         <div className="flex-1 p-8 rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
                             <div className="flex items-center gap-3 mb-4">
                                 <span className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                                    <User className="size-5" />
+                                    <Flag className="size-5" />
                                 </span>
                                 <h4 className="text-primary font-bold text-lg font-heading">Our Mission</h4>
                             </div>
@@ -61,7 +61,7 @@ export function TeamSection() {
                         <div className="flex-1 p-8 rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
                             <div className="flex items-center gap-3 mb-4">
                                 <span className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                                    <Stethoscope className="size-5" />
+                                    <FileCheck className="size-5" />
                                 </span>
                                 <h4 className="text-primary font-bold text-lg font-heading">Clinical Governance</h4>
                             </div>

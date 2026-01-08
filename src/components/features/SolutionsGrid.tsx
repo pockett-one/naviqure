@@ -38,27 +38,28 @@ export function SolutionsGrid() {
                                     className="group h-full"
                                 >
                                     <Card className="h-full relative border-none bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] ring-1 ring-primary/5 rounded-[1.5rem] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(41,54,129,0.08)] hover:-translate-y-2 overflow-hidden flex flex-col p-2">
-                                        <div className="flex-1 p-6 flex flex-col relative z-10">
-                                            <CardHeader className="p-0 mb-6">
-                                                <div className="flex justify-between items-start mb-6">
-                                                    <div className="h-14 w-14 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
-                                                        <span className="material-symbols-outlined text-[1.8rem]">
-                                                            {solution.icon}
-                                                        </span>
-                                                    </div>
-                                                    <div className="px-3 py-1 rounded-full bg-secondary text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">
-                                                        AI Ready
-                                                    </div>
+                                        <div className="flex-1 p-5 lg:p-6 flex flex-col relative z-10">
+                                            {/* Icon and Badge Row */}
+                                            <div className="flex justify-between items-start mb-4">
+                                                <div className="h-12 w-12 lg:h-14 lg:w-14 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+                                                    <span className="material-symbols-outlined text-[1.5rem] lg:text-[1.8rem]">
+                                                        {solution.icon}
+                                                    </span>
                                                 </div>
-                                                <CardTitle className="text-2xl font-bold tracking-tight text-primary font-heading leading-tight group-hover:text-primary transition-colors">
-                                                    {solution.title}
-                                                </CardTitle>
-                                            </CardHeader>
-                                            <CardContent className="p-0">
-                                                <CardDescription className="text-[15px] font-medium text-muted-foreground leading-relaxed">
-                                                    {solution.description}
-                                                </CardDescription>
-                                            </CardContent>
+                                                <div className="px-3 py-1 rounded-full bg-secondary text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">
+                                                    AI Ready
+                                                </div>
+                                            </div>
+                                            
+                                            {/* Title */}
+                                            <CardTitle className="text-xl lg:text-2xl font-bold tracking-tight text-primary font-heading leading-tight mb-3 group-hover:text-primary transition-colors">
+                                                {solution.title}
+                                            </CardTitle>
+                                            
+                                            {/* Description */}
+                                            <CardDescription className="text-sm lg:text-[15px] font-medium text-muted-foreground leading-relaxed">
+                                                {solution.description}
+                                            </CardDescription>
                                         </div>
 
                                         {/* Watermark Number */}

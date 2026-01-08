@@ -32,29 +32,28 @@ export function CareAreasSection() {
                                 className="group"
                             >
                                 <div className="h-full relative p-2 rounded-[1.5rem] bg-white border border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_rgba(41,54,129,0.08)] hover:-translate-y-2 flex flex-col">
-                                    <div className="flex-1 p-6 md:p-8 relative z-10">
-                                        <div className="flex flex-wrap gap-2 mb-8">
-                                            <span className="px-3 py-1 rounded-full bg-secondary text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">Specialized</span>
-                                            <span className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-[10px] font-bold uppercase tracking-wider">Chronic</span>
-                                        </div>
-
-                                        <div className="flex items-center gap-4 mb-6">
-                                            <div className="w-14 h-14 rounded-xl bg-primary text-white backdrop-blur-md shadow-lg shadow-primary/20 flex items-center justify-center shrink-0">
-                                                <span className="material-symbols-outlined text-[1.8rem]">
+                                    <div className="flex-1 p-5 lg:p-6 relative z-10">
+                                        {/* Icon and Badge Row */}
+                                        <div className="flex justify-between items-start mb-4">
+                                            <div className="h-12 w-12 lg:h-14 lg:w-14 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+                                                <span className="material-symbols-outlined text-[1.5rem] lg:text-[1.8rem] transition-transform duration-500 group-hover:scale-110">
                                                     {area.icon}
                                                 </span>
                                             </div>
-                                            <h3 className="text-2xl font-bold font-heading text-primary leading-tight">
-                                                {area.title}
-                                            </h3>
+                                            <div className="px-3 py-1 rounded-full bg-secondary text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">
+                                                Specialized
+                                            </div>
                                         </div>
 
-                                        <div className="mb-8">
-                                            <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest mb-3 opacity-60">Focus Areas</div>
-                                            <p className="text-muted-foreground text-[15px] font-medium leading-relaxed text-justify">
-                                                {area.description}
-                                            </p>
-                                        </div>
+                                        {/* Title */}
+                                        <h3 className="text-xl lg:text-2xl font-bold font-heading text-primary mb-3 leading-tight">
+                                            {area.title}
+                                        </h3>
+
+                                        {/* Description */}
+                                        <p className="text-muted-foreground text-sm lg:text-[15px] font-medium leading-relaxed">
+                                            {area.description}
+                                        </p>
                                     </div>
 
                                     {/* Watermark Number */}

@@ -56,7 +56,7 @@ export const SOLUTIONS = [
   {
     title: "Caregiver Co-pilot",
     description: "Specialized tools for family members managing patients with cognitive or high-dependency needs (e.g., Alzheimer's/Parkinson's).",
-    icon: "diversity_1",
+    icon: "forum",
   },
 ] as const;
 
