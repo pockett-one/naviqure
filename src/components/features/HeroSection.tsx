@@ -70,7 +70,7 @@ export function HeroSection() {
 
 
     return (
-        <section className="relative overflow-hidden bg-white pt-32 pb-48 lg:pt-40 lg:pb-64" id="hero">
+        <section className="relative overflow-hidden bg-white pt-24 pb-32 sm:pt-28 sm:pb-40 lg:pt-40 lg:pb-64" id="hero">
             {/* Base Gradient */}
             <div className="absolute inset-0 bg-gradient-to-b from-white to-secondary/40 z-0" />
 
@@ -78,8 +78,8 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-[radial-gradient(var(--color-primary)_1px,transparent_1px)] opacity-[0.08] [background-size:24px_24px] z-0" />
 
             {/* Watermark */}
-            <div className="absolute top-20 left-1/2 -translate-x-1/2 select-none pointer-events-none z-0 overflow-hidden w-full flex justify-center">
-                <span className="text-[10rem] md:text-[18rem] lg:text-[22rem] font-bold text-primary/5 whitespace-nowrap tracking-tight font-heading leading-none">
+            <div className="absolute top-16 sm:top-20 left-1/2 -translate-x-1/2 select-none pointer-events-none z-0 overflow-hidden w-full flex justify-center">
+                <span className="text-[6rem] sm:text-[10rem] md:text-[18rem] lg:text-[22rem] font-bold text-primary/5 whitespace-nowrap tracking-tight font-heading leading-none">
                     NAVIQURE
                 </span>
             </div>
@@ -109,7 +109,7 @@ export function HeroSection() {
             </div>
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+                <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 items-center">
 
                     {/* Text Content */}
                     <motion.div
@@ -123,27 +123,27 @@ export function HeroSection() {
                             The Future of Patient Empowerment
                         </div>
 
-                        <h1 className="text-4xl font-heading font-bold tracking-tight sm:text-5xl lg:text-5xl xl:text-6xl mb-6 heading-gradient pb-2">
+                        <h1 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight lg:text-5xl xl:text-6xl mb-4 sm:mb-6 heading-gradient pb-2">
                             Building the Future of AI Powered Chronic Healthcare in India
                         </h1>
 
-                        <p className="mx-auto lg:mx-0 max-w-xl text-xl font-medium text-primary/80 mb-4 leading-relaxed">
+                        <p className="mx-auto lg:mx-0 max-w-xl text-base sm:text-lg lg:text-xl font-medium text-primary/80 mb-3 sm:mb-4 leading-relaxed">
                             A patient-first platform for chronic care, where intelligence meets empathy, powered by secure AI and evidence-based guidance.
                         </p>
 
-                        <p className="mx-auto lg:mx-0 max-w-2xl text-lg text-muted-foreground mb-8 leading-relaxed">
+                        <p className="mx-auto lg:mx-0 max-w-2xl text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                             NaviQure is transforming India's fragmented health data into actionable insights through content standardization, responsible sharing, and AI-driven intelligence powered by foundation models — creating a transparent, interoperable, and trustworthy chronic care ecosystem.
                         </p>
 
-                        <div className="flex flex-row items-start gap-4 justify-center lg:justify-start min-h-[100px]">
+                        <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 justify-center lg:justify-start">
                             {/* Primary CTA container */}
                             <div
-                                className="relative group"
+                                className="relative group w-full sm:w-auto"
                                 onMouseEnter={() => setHoveredCTA('get-started')}
                                 onMouseLeave={() => setHoveredCTA(null)}
                             >
-                                <Button size="lg" className={`text-lg px-8 h-14 bg-primary hover:bg-[${BRAND_COLORS.primaryHover}] shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] rounded-full w-full sm:w-auto gap-2`}>
-                                    Get started <span className="material-symbols-outlined text-[1.4rem]">arrow_forward</span>
+                                <Button size="lg" className={`text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 bg-primary hover:bg-[${BRAND_COLORS.primaryHover}] shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] rounded-full w-full sm:w-auto gap-2`}>
+                                    Get started <span className="material-symbols-outlined text-[1.2rem] sm:text-[1.4rem]">arrow_forward</span>
                                 </Button>
                                 <AnimatePresence>
                                     {hoveredCTA === 'get-started' && (
@@ -166,7 +166,7 @@ export function HeroSection() {
                                 onMouseEnter={() => setHoveredCTA('appointment')}
                                 onMouseLeave={() => setHoveredCTA(null)}
                             >
-                                <Button size="lg" variant="outline" className="text-lg px-8 h-14 border-primary text-primary hover:bg-primary/5 transition-all hover:scale-[1.02] rounded-full w-full sm:w-auto font-semibold">
+                                <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 border-primary text-primary hover:bg-primary/5 transition-all hover:scale-[1.02] rounded-full w-full sm:w-auto font-semibold">
                                     Request Appointment
                                 </Button>
                                 <AnimatePresence>
@@ -185,10 +185,10 @@ export function HeroSection() {
                             </div>
                         </div>
 
-                        <div className="mt-10 flex items-center justify-center lg:justify-start space-x-6 text-sm text-primary/60 font-medium">
-                            <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1.2rem] opacity-80">shield_locked</span> ABHA Ready</div>
-                            <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1.2rem] opacity-80">vital_signs</span> Clinical Grade</div>
-                            <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1.2rem] opacity-80">auto_awesome</span> AI Powered</div>
+                        <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-primary/60 font-medium">
+                            <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1rem] sm:text-[1.2rem] opacity-80">shield_locked</span> ABHA Ready</div>
+                            <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1rem] sm:text-[1.2rem] opacity-80">vital_signs</span> Clinical Grade</div>
+                            <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1rem] sm:text-[1.2rem] opacity-80">auto_awesome</span> AI Powered</div>
                         </div>
                     </motion.div>
 
@@ -201,9 +201,9 @@ export function HeroSection() {
                         style={{ perspective: "2000px" }}
                     >
                         {/* Main Carousel Container - Larger, More Immersive */}
-                        <div className="relative w-full lg:w-[140%] lg:-mr-[20%]">
+                        <div className="relative w-full lg:w-[140%] lg:-mr-[20%] mt-8 lg:mt-0">
                             <div
-                                className="relative w-full aspect-[4/3] lg:aspect-[16/10] rounded-3xl overflow-hidden group"
+                                className="relative w-full aspect-[3/2] sm:aspect-[4/3] lg:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden group"
                                 onMouseEnter={() => setIsHovering(true)}
                                 onMouseLeave={() => setIsHovering(false)}
                             >
@@ -229,9 +229,9 @@ export function HeroSection() {
                                                 }}
                                             >
                                                 {/* Static border container - no animation */}
-                                                <div className="absolute inset-0 rounded-3xl p-[11px] bg-white border border-primary/10">
+                                                <div className="absolute inset-0 rounded-2xl sm:rounded-3xl p-2 sm:p-[11px] bg-white border border-primary/10">
                                                     {/* Image content */}
-                                                    <div className="absolute inset-[11px] rounded-2xl overflow-hidden">
+                                                    <div className="absolute inset-2 sm:inset-[11px] rounded-xl sm:rounded-2xl overflow-hidden">
                                                         <Image
                                                             src={image.src}
                                                             alt={image.alt}
@@ -249,7 +249,7 @@ export function HeroSection() {
                                                         {/* Placeholder Watermark - Subtle and Visible */}
                                                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
                                                             <p
-                                                                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold font-heading text-white/20 tracking-wide select-none whitespace-nowrap"
+                                                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold font-heading text-white/20 tracking-wide select-none whitespace-nowrap"
                                                                 style={{
                                                                     textShadow: '0 2px 8px rgba(0,0,0,0.2)',
                                                                     transform: 'rotate(-45deg)',
@@ -354,14 +354,14 @@ export function HeroSection() {
                             </div>
 
                             {/* Enhanced Bottom Thumbnail Navigation - Mobile/Tablet */}
-                            <div className="flex xl:hidden gap-3 justify-center mt-6">
+                            <div className="flex xl:hidden gap-2 sm:gap-3 justify-center mt-4 sm:mt-6">
                                 {HERO_IMAGES.map((image, index) => (
                                     <motion.button
                                         key={index}
                                         onClick={() => handleThumbnailClick(index)}
-                                        className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden transition-all duration-500 ${index === currentImageIndex
-                                                ? "ring-3 ring-primary shadow-2xl shadow-primary/30 scale-110"
-                                                : "ring-2 ring-white/30 hover:ring-primary/50 opacity-50 hover:opacity-100"
+                                        className={`relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-500 ${index === currentImageIndex
+                                                ? "ring-2 sm:ring-3 ring-primary shadow-xl sm:shadow-2xl shadow-primary/30 scale-105 sm:scale-110"
+                                                : "ring-1 sm:ring-2 ring-white/30 hover:ring-primary/50 opacity-50 hover:opacity-100"
                                             }`}
                                         whileHover={{ y: -6, scale: 1.1 }}
                                         whileTap={{ scale: 0.9 }}
@@ -398,7 +398,7 @@ export function HeroSection() {
                             </div>
 
                             {/* Modern Progress Indicators */}
-                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-30">
+                            <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-2.5 z-30">
                                 {HERO_IMAGES.map((_, index) => (
                                     <button
                                         key={index}
@@ -407,9 +407,9 @@ export function HeroSection() {
                                         aria-label={`Go to slide ${index + 1}`}
                                     >
                                         <motion.div
-                                            className={`h-2.5 rounded-full transition-all duration-500 ${index === currentImageIndex
-                                                ? "w-14 bg-white shadow-lg shadow-white/50"
-                                                : "w-2.5 bg-white/50 group-hover/dot:bg-white/80 group-hover/dot:w-4"
+                                            className={`h-2 sm:h-2.5 rounded-full transition-all duration-500 ${index === currentImageIndex
+                                                ? "w-10 sm:w-14 bg-white shadow-lg shadow-white/50"
+                                                : "w-2 sm:w-2.5 bg-white/50 group-hover/dot:bg-white/80 group-hover/dot:w-3 sm:group-hover/dot:w-4"
                                                 }`}
                                             layout
                                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
