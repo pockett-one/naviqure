@@ -25,7 +25,7 @@ export function TeamSection() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-4xl mx-auto mb-20">
                     <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Governance & Leadership</h2>
-                    <h3 className="mt-2 text-3xl font-bold font-heading text-primary sm:text-4xl">Core Team</h3>
+                    <h3 className="mt-2 text-3xl font-bold font-heading sm:text-4xl heading-gradient pb-2">Core Team</h3>
 
                     <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                         <div className="p-8 rounded-[1.5rem] bg-accent/30 border border-accent/50">
@@ -60,8 +60,8 @@ export function TeamSection() {
                         className="grid grid-cols-1 md:grid-cols-2 gap-8"
                     >
                         {CORE_TEAM.founders.filter(m => m.visible).map((founder) => (
-                            <motion.div key={founder.name} variants={item} className="flex items-start gap-4 p-6 rounded-xl bg-muted border border-border hover:border-primary/20 transition-colors">
-                                <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center text-primary shrink-0">
+                            <motion.div key={founder.name} variants={item} className="flex items-start gap-4 p-6 rounded-xl bg-secondary/40 border border-primary/10 hover:border-primary/20 transition-colors">
+                                <div className="w-16 h-16 rounded-xl bg-accent flex items-center justify-center text-primary shrink-0">
                                     <User className="w-8 h-8" />
                                 </div>
                                 <div>
@@ -85,8 +85,8 @@ export function TeamSection() {
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                     >
                         {CORE_TEAM.medicalPanel.filter(m => m.visible).map((member, i) => (
-                            <motion.div key={i} variants={item} className="p-6 rounded-xl border border-dashed border-border bg-white hover:bg-muted transition-colors text-center">
-                                <div className="w-12 h-12 mx-auto rounded-full bg-accent flex items-center justify-center text-primary mb-4">
+                            <motion.div key={i} variants={item} className="p-6 rounded-xl border border-dashed border-primary/10 bg-white hover:bg-secondary/30 transition-colors text-center">
+                                <div className="w-12 h-12 mx-auto rounded-xl bg-accent flex items-center justify-center text-primary mb-4">
                                     <Stethoscope className="w-6 h-6" />
                                 </div>
                                 <h5 className="font-bold text-primary">{member.name}</h5>
@@ -110,7 +110,7 @@ export function TeamSection() {
                     >
                         {CORE_TEAM.advisoryPanel.filter(m => m.visible).map((member, i) => (
                             <motion.div key={i} variants={item} className="p-6 rounded-xl border border-border bg-white hover:shadow-md transition-shadow text-center">
-                                <div className="w-12 h-12 mx-auto rounded-full bg-accent flex items-center justify-center text-primary mb-4">
+                                <div className="w-12 h-12 mx-auto rounded-xl bg-accent flex items-center justify-center text-primary mb-4">
                                     <Briefcase className="w-6 h-6" />
                                 </div>
                                 <h5 className="font-bold text-primary">{member.name}</h5>
@@ -131,7 +131,7 @@ export function TeamSection() {
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                     >
                         {CORE_TEAM.hospitalPartners.filter(m => m.visible).map((partner, i) => (
-                            <motion.div key={i} variants={item} className="p-6 rounded-xl bg-muted border border-border flex flex-col items-center justify-center min-h-[140px] hover:border-primary/20 transition-colors">
+                            <motion.div key={i} variants={item} className="p-6 rounded-xl bg-secondary/40 border border-primary/10 flex flex-col items-center justify-center min-h-[140px] hover:border-primary/20 transition-colors">
                                 <Building2 className="w-8 h-8 text-muted-foreground mb-3" />
                                 <h5 className="font-bold text-primary">{partner.name}</h5>
                             </motion.div>

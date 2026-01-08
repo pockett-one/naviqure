@@ -6,19 +6,15 @@ import { ArrowUpRight } from "lucide-react";
 
 export function CareAreasSection() {
     return (
-        <section className="bg-[#EBF5FF]/40 py-24 sm:py-32 relative overflow-hidden scroll-mt-20" id="care-areas">
+        <section className="bg-secondary/40 py-24 sm:py-32 relative overflow-hidden scroll-mt-20" id="care-areas">
             {/* Texture */}
-            <div className="absolute inset-0 bg-[radial-gradient(#29368110_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none opacity-50" />
+            <div className="absolute inset-0 bg-[radial-gradient(var(--color-primary)_1px,transparent_1px)] opacity-[0.06] [background-size:32px_32px] pointer-events-none opacity-50" />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="mx-auto max-w-2xl text-center mb-16">
-                    <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Featured Care Areas</h2>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-                        Complex Chronic Support
-                    </p>
-                    <p className="mt-4 text-lg text-muted-foreground">
-                        Specialized workflows for high-dependency conditions like Oncology and Neurology.
-                    </p>
+                    <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Clinical Focus</h2>
+                    <h3 className="mt-2 text-3xl font-bold font-heading sm:text-4xl heading-gradient pb-2">Treatment Continuity</h3>
+                    <p className="mt-4 text-lg text-muted-foreground">Specialized care pathways for high-complexity chronic conditions.</p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -35,12 +31,12 @@ export function CareAreasSection() {
                                 <div className="h-full relative p-2 rounded-[1.5rem] bg-white border border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_rgba(41,54,129,0.08)] hover:-translate-y-2 flex flex-col">
                                     <div className="flex-1 p-6 md:p-8 relative z-10">
                                         <div className="flex flex-wrap gap-2 mb-8">
-                                            <span className="px-3 py-1 rounded-full bg-[#EBF5FF] text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">Specialized</span>
+                                            <span className="px-3 py-1 rounded-full bg-secondary text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">Specialized</span>
                                             <span className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-[10px] font-bold uppercase tracking-wider">Chronic</span>
                                         </div>
 
                                         <div className="flex items-center gap-4 mb-6">
-                                            <div className="p-4 rounded-3xl bg-primary text-white backdrop-blur-md shadow-lg shadow-primary/20">
+                                            <div className="w-14 h-14 rounded-xl bg-primary text-white backdrop-blur-md shadow-lg shadow-primary/20 flex items-center justify-center shrink-0">
                                                 <span className="material-symbols-outlined text-[1.8rem]">
                                                     {area.icon}
                                                 </span>

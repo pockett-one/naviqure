@@ -1,4 +1,13 @@
 
+export const BRAND_COLORS = {
+  primary: "#2D39A3",      // Navi Indigo (Vibrant Navy)
+  primaryHover: "#1E247D",  // Deep Indigo (Hover state)
+  secondary: "#F0F7FF",    // Sky Bloom (Accent Blue)
+  white: "#FFFFFF",
+  background: "#FFFFFF",
+  muted: "#F8FAFC",
+  text: "#212B36",
+} as const;
 
 // Lucide imports removed in favor of Material Symbols
 
@@ -55,12 +64,12 @@ export const CARE_AREAS = [
   {
     title: "Oncology (Cancer Care)",
     description: "Streamlining chemotherapy schedules, symptom tracking, and medication adherence for complex multi-drug regimens.",
-    icon: "science",
+    icon: "biotech",
   },
   {
     title: "Neurological Care (Alzheimer’s & Parkinson’s)",
     description: "Specialized tracking for cognitive trends, motor function fluctuations, and safety alerts for caregivers.",
-    icon: "psychology",
+    icon: "neurology",
   },
   {
     title: "Metabolic & Cardiovascular",

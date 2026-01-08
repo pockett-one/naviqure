@@ -8,18 +8,18 @@ export function SolutionsGrid() {
     return (
         <section className="py-24 bg-white relative scroll-mt-20" id="solutions">
             {/* Texture */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#2936810a_1px,transparent_1px),linear-gradient(to_bottom,#2936810a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-primary)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-primary)_1px,transparent_1px)] opacity-[0.04] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 {/* Section 1: Platform */}
                 <div>
                     <div className="mx-auto max-w-2xl text-center mb-16">
-                        <h2 className="text-sm font-bold text-primary uppercase tracking-[0.2em]">Platform</h2>
-                        <p className="mt-2 text-4xl font-bold tracking-tight text-primary sm:text-5xl font-heading">
+                        <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Platform</h2>
+                        <h3 className="mt-2 text-3xl font-bold font-heading sm:text-4xl heading-gradient pb-2">
                             Healthcare Intelligence
-                        </p>
-                        <p className="mt-4 text-lg text-muted-foreground font-medium">
+                        </h3>
+                        <p className="mt-4 text-lg text-muted-foreground">
                             A unified orchestration layer for chronic disease management.
                         </p>
                     </div>
@@ -39,12 +39,12 @@ export function SolutionsGrid() {
                                         <div className="flex-1 p-6 flex flex-col relative z-10">
                                             <CardHeader className="p-0 mb-6">
                                                 <div className="flex justify-between items-start mb-6">
-                                                    <div className="h-14 w-14 rounded-2xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+                                                    <div className="h-14 w-14 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
                                                         <span className="material-symbols-outlined text-[1.8rem]">
                                                             {solution.icon}
                                                         </span>
                                                     </div>
-                                                    <div className="px-3 py-1 rounded-full bg-[#EBF5FF] text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">
+                                                    <div className="px-3 py-1 rounded-full bg-secondary text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">
                                                         AI Ready
                                                     </div>
                                                 </div>

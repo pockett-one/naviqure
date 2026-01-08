@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BRAND_COLORS } from "@/lib/constants";
 
 export function Logo({ className }: { className?: string }) {
     const spokeBulbPairs = [
@@ -14,7 +15,7 @@ export function Logo({ className }: { className?: string }) {
     return (
         <svg viewBox="0 0 100 100" className={className} aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             {/* Center Circle - Always solid */}
-            <circle cx="50" cy="50" r="14" fill="#293681" />
+            <circle cx="50" cy="50" r="14" fill={BRAND_COLORS.primary} />
 
             {spokeBulbPairs.map((pair, i) => (
                 <motion.g
@@ -35,7 +36,7 @@ export function Logo({ className }: { className?: string }) {
                     <line
                         x1="50" y1="50"
                         x2={pair.line.x2} y2={pair.line.y2}
-                        stroke="#293681"
+                        stroke={BRAND_COLORS.primary}
                         strokeWidth="4"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -43,7 +44,7 @@ export function Logo({ className }: { className?: string }) {
                     <circle
                         cx={pair.circle.cx} cy={pair.circle.cy}
                         r="12"
-                        fill="#293681"
+                        fill={BRAND_COLORS.primary}
                     />
                 </motion.g>
             ))}

@@ -65,7 +65,7 @@ export function Header() {
                                     className={cn(
                                         "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-1",
                                         pathname === link.href
-                                            ? "bg-accent text-primary shadow-sm ring-1 ring-primary/10"
+                                            ? "bg-secondary text-primary shadow-sm ring-1 ring-primary/10"
                                             : "text-primary hover:bg-muted hover:text-primary/80"
                                     )}
                                 >
@@ -108,7 +108,7 @@ export function Header() {
 
                     {/* Contact / CTA */}
                     <div className="flex-1 hidden md:flex items-center justify-end">
-                        <div className="hidden lg:flex items-center gap-2 bg-accent/50 border border-border px-3 py-1.5 rounded-full mr-4">
+                        <div className="hidden lg:flex items-center gap-2 bg-secondary/50 border border-border px-3 py-1.5 rounded-full mr-4">
                             <span className="material-symbols-outlined text-[1.2rem] text-primary">verified_user</span>
                             <span className="text-[10px] font-bold text-primary whitespace-nowrap uppercase tracking-wider">HIPAA & ABHA Compliant</span>
                         </div>
