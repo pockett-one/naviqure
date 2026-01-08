@@ -13,23 +13,17 @@ export function Footer() {
         <footer className="bg-secondary/30 pt-16 pb-8 relative">
             <SectionDivider className="absolute -top-[0.5px] left-0 z-40" />
 
-            {/* Wave Background Wrapper - Three Distinct Color Layers */}
+            {/* Wave Background Wrapper - Two Distinct Color Layers */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute bottom-0 left-0 right-0 z-0 h-64">
                     <svg viewBox="0 0 1440 320" className="w-full h-full block align-bottom" preserveAspectRatio="none">
-                        {/* Layer 1: Back Wave - Darkest Blue - TEMPORARILY HIDDEN */}
-                        {/* <path
-                            fill="#D4E7FF"
-                            fillOpacity="1"
-                            d="M0,140L48,156C96,172,192,204,288,208C384,212,480,188,576,168C672,148,768,132,864,140C960,148,1056,180,1152,192C1248,204,1344,196,1392,192L1440,188L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-                        /> */}
-                        {/* Layer 2: Middle Wave - Medium Blue */}
+                        {/* Layer 1: Back Wave - Medium Blue */}
                         <path
                             fill="#E8F3FF"
                             fillOpacity="1"
                             d="M0,204L48,196C96,188,192,172,288,176C384,180,480,204,576,216C672,228,768,228,864,216C960,204,1056,180,1152,168C1248,156,1344,156,1392,156L1440,156L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
                         />
-                        {/* Layer 3: Front Wave - Lightest Blue */}
+                        {/* Layer 2: Front Wave - Lightest Blue */}
                         <path
                             fill="#F0F7FF"
                             fillOpacity="1"

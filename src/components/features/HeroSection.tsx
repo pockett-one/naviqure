@@ -84,22 +84,16 @@ export function HeroSection() {
                 </span>
             </div>
 
-            {/* Wave Background (Bottom) - Three Distinct Color Layers */}
+            {/* Wave Background (Bottom) - Two Distinct Color Layers */}
             <div className="absolute bottom-0 left-0 right-0 z-0 overflow-hidden h-64 sm:h-80 lg:h-96 pointer-events-none">
                 <svg viewBox="0 0 1440 320" className="w-full h-full block align-bottom" preserveAspectRatio="none">
-                    {/* Layer 1: Back Wave - Darkest Blue (Most Prominent) - TEMPORARILY HIDDEN */}
-                    {/* <path
-                        fill="#D4E7FF"
-                        fillOpacity="1"
-                        d="M0,80L48,100C96,120,192,160,288,170C384,180,480,160,576,140C672,120,768,100,864,108C960,116,1056,152,1152,164C1248,176,1344,164,1392,158L1440,152L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-                    /> */}
-                    {/* Layer 2: Middle Wave - Medium Blue */}
+                    {/* Layer 1: Back Wave - Medium Blue */}
                     <path
                         fill="#E8F3FF"
                         fillOpacity="1"
                         d="M0,160L48,152C96,144,192,128,288,136C384,144,480,176,576,188C672,200,768,192,864,180C960,168,1056,152,1152,144C1248,136,1344,136,1392,136L1440,136L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
                     />
-                    {/* Layer 3: Front Wave - Lightest Blue (Subtle) */}
+                    {/* Layer 2: Front Wave - Lightest Blue */}
                     <path
                         fill="#F0F7FF"
                         fillOpacity="1"
