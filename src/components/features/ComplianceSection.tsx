@@ -2,12 +2,25 @@
 
 import { COMPLIANCE_FEATURES, BRAND_COLORS } from "@/lib/constants";
 import { motion } from "framer-motion";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export function ComplianceSection() {
     return (
-        <section className="py-24 bg-secondary/20 relative overflow-hidden border-t border-primary/5" id="trust">
-            {/* Texture */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-primary)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-primary)_1px,transparent_1px)] opacity-[0.05] bg-[size:32px_32px] pointer-events-none" />
+        <section className="py-24 bg-secondary/20 relative" id="trust">
+            <SectionDivider className="absolute -top-[0.5px] left-0 z-50" />
+
+            {/* Texture wrapper with clipping */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div
+                    className="absolute inset-0 opacity-[0.01]"
+                    style={{
+                        backgroundImage: `linear-gradient(to right, ${BRAND_COLORS.primary} 1px, transparent 1px), linear-gradient(to bottom, ${BRAND_COLORS.primary} 1px, transparent 1px)`,
+                        backgroundSize: '32px 32px',
+                        maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
+                    }}
+                />
+            </div>
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-8 items-stretch">
@@ -47,7 +60,7 @@ export function ComplianceSection() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="p-8 rounded-[1.5rem] bg-white border border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(41,54,129,0.06)] hover:-translate-y-1 transition-all duration-500 group"
+                                    className="p-8 rounded-[1.5rem] bg-white border border-primary/10 shadow-[0_15px_40px_rgba(41,54,129,0.05)] hover:shadow-[0_25px_60px_rgba(41,54,129,0.1)] hover:-translate-y-1 transition-all duration-500 group"
                                 >
                                     <div className="flex justify-between items-start mb-8">
                                         <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
@@ -55,7 +68,7 @@ export function ComplianceSection() {
                                                 {feature.icon}
                                             </span>
                                         </div>
-                                        <span className="px-2 py-0.5 rounded-full bg-primary/5 text-primary text-[9px] font-bold uppercase tracking-tighter opacity-80 ring-1 ring-primary/10">Protocol V1</span>
+                                        <span className="px-2 py-0.5 rounded-full bg-primary/5 text-primary text-[9px] font-bold uppercase tracking-tighter opacity-80 ring-1 ring-primary/10">Protocol</span>
                                     </div>
                                     <h3 className="font-bold text-primary mb-3 text-lg font-heading">{feature.title}</h3>
                                     <p className="text-sm text-muted-foreground font-medium leading-relaxed">{feature.description}</p>
