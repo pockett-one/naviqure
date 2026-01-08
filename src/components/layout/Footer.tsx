@@ -11,7 +11,7 @@ import { Logo } from "@/components/ui/Logo";
 export function Footer() {
     return (
         <footer className="bg-secondary/30 pt-16 pb-8 relative">
-            <SectionDivider className="absolute -top-[0.5px] left-0 z-50" />
+            <SectionDivider className="absolute -top-[0.5px] left-0 z-40" />
 
             {/* Wave Background Wrapper */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

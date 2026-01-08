@@ -2,12 +2,10 @@
 
 import { WHO_WE_SERVE, BRAND_COLORS } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export function WhoWeServeSection() {
     return (
-        <section className="py-24 bg-gradient-to-b from-[#F0F7FF] to-white relative scroll-mt-20" id="who-we-serve">
-            <SectionDivider className="absolute -top-[0.5px] left-0 z-50" />
+        <section className="py-24 bg-gradient-to-b from-[#F0F7FF] to-white relative scroll-mt-20 border-t border-primary/10" id="who-we-serve">
 
             {/* Background elements wrapper for overflow clipping */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

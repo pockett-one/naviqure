@@ -8,7 +8,7 @@ import { SectionDivider } from "@/components/ui/SectionDivider";
 export function SolutionsGrid() {
     return (
         <section className="py-24 bg-white relative scroll-mt-20" id="solutions">
-            <SectionDivider className="absolute -top-[0.5px] left-0 z-50" />
+            <SectionDivider className="absolute -top-[0.5px] left-0 z-40" />
             {/* Texture */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-primary)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-primary)_1px,transparent_1px)] opacity-[0.04] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 

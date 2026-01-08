@@ -3,11 +3,72 @@
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BRAND_COLORS } from "@/lib/constants";
+
+const HERO_IMAGES = [
+    {
+        src: "/hero-solutions.png",
+        alt: "Advanced Healthcare Solutions",
+        watermark: "Solutions"
+    },
+    {
+        src: "/hero-care-areas.png",
+        alt: "Compassionate Care",
+        watermark: "Care Areas"
+    },
+    {
+        src: "/hero-who-we-serve.png",
+        alt: "Collaborative Healthcare",
+        watermark: "Who We Serve"
+    }
+];
 
 export function HeroSection() {
     const [hoveredCTA, setHoveredCTA] = useState<string | null>(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isHovering, setIsHovering] = useState(false);
+    const [direction, setDirection] = useState(0);
+    const [progressKey, setProgressKey] = useState(0);
+
+    // Auto-play carousel
+    useEffect(() => {
+        if (isHovering) return; // Pause on hover
+
+        const timer = setInterval(() => {
+            setDirection(1);
+            setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+            setProgressKey((prev) => prev + 1);
+        }, 5000); // Change image every 5 seconds
+
+        return () => clearInterval(timer);
+    }, [isHovering]);
+
+    const handleNext = () => {
+        setDirection(1);
+        setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+        setProgressKey((prev) => prev + 1);
+    };
+
+    const handlePrevious = () => {
+        setDirection(-1);
+        setCurrentImageIndex((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
+        setProgressKey((prev) => prev + 1);
+    };
+
+    const handleThumbnailClick = (index: number) => {
+        setDirection(index > currentImageIndex ? 1 : -1);
+        setCurrentImageIndex(index);
+        setProgressKey((prev) => prev + 1);
+    };
+
+    const handleDotClick = (index: number) => {
+        setDirection(index > currentImageIndex ? 1 : -1);
+        setCurrentImageIndex(index);
+        setProgressKey((prev) => prev + 1);
+    };
+
+
     return (
         <section className="relative overflow-hidden bg-white pt-32 pb-48 lg:pt-40 lg:pb-64" id="hero">
             {/* Base Gradient */}
@@ -131,24 +192,241 @@ export function HeroSection() {
                         </div>
                     </motion.div>
 
-                    {/* Visual Content: Rounded Image */}
+                    {/* Visual Content: Premium Immersive Carousel */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative mx-auto w-full max-w-[500px] lg:max-w-none flex justify-center"
+                        className="relative w-full h-full flex items-center justify-end"
+                        style={{ perspective: "2000px" }}
                     >
-                        <div className="relative w-full aspect-square max-w-[450px] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-primary/10 transition-transform hover:scale-[1.02] duration-500">
-                            <Image
-                                src="/hero-1.jpeg"
-                                alt="Healthcare Professional"
-                                fill
-                                className="object-cover"
-                                priority
-                            />
+                        {/* Main Carousel Container - Larger, More Immersive */}
+                        <div className="relative w-full lg:w-[140%] lg:-mr-[20%]">
+                            <div
+                                className="relative w-full aspect-[4/3] lg:aspect-[16/10] rounded-3xl overflow-hidden group"
+                                onMouseEnter={() => setIsHovering(true)}
+                                onMouseLeave={() => setIsHovering(false)}
+                            >
+                                {/* Modern 3D Slide Carousel */}
+                                <div className="absolute inset-0 z-0" style={{ transformStyle: 'preserve-3d' }}>
+                                    {HERO_IMAGES.map((image, index) => {
+                                        const isActive = index === currentImageIndex;
+                                        
+                                        return (
+                                            <motion.div
+                                                key={index}
+                                                className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl"
+                                                initial={false}
+                                                animate={{
+                                                    opacity: isActive ? 1 : 0,
+                                                    zIndex: isActive ? 10 : 0,
+                                                }}
+                                                transition={{
+                                                    opacity: {
+                                                        duration: 2.8,
+                                                        ease: [0.12, 1, 0.28, 1], // Ultra-gentle ease-out
+                                                    }
+                                                }}
+                                            >
+                                                {/* Static border container - no animation */}
+                                                <div className="absolute inset-0 rounded-3xl p-[11px] bg-white border border-primary/10">
+                                                    {/* Image content */}
+                                                    <div className="absolute inset-[11px] rounded-2xl overflow-hidden">
+                                                        <Image
+                                                            src={image.src}
+                                                            alt={image.alt}
+                                                            fill
+                                                            className="object-cover"
+                                                            priority={index === currentImageIndex}
+                                                        />
 
-                            {/* Overlay Gradient for better integration */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent"></div>
+                                                        {/* Gradient Overlay */}
+                                                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
+
+                                                        {/* Vignette Effect */}
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+
+                                                        {/* Placeholder Watermark - Subtle and Visible */}
+                                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                                                            <p
+                                                                className="text-4xl lg:text-5xl xl:text-6xl font-semibold font-heading text-white/20 tracking-wide select-none whitespace-nowrap"
+                                                                style={{
+                                                                    textShadow: '0 2px 8px rgba(0,0,0,0.2)',
+                                                                    transform: 'rotate(-45deg)',
+                                                                }}
+                                                            >
+                                                                PLACEHOLDER
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </div>
+
+
+                                {/* Modern Navigation Arrows */}
+                                <motion.button
+                                    initial={{ opacity: 0, x: 10 }}
+                                    animate={{ opacity: isHovering ? 1 : 0.6, x: 0 }}
+                                    whileHover={{ opacity: 1, scale: 1.15, x: -4 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                    onClick={handlePrevious}
+                                    className="absolute left-6 top-1/2 -translate-y-1/2 z-30 w-16 h-16 rounded-full bg-white/98 backdrop-blur-xl shadow-2xl shadow-black/10 flex items-center justify-center text-primary hover:shadow-primary/20 transition-shadow duration-300 pointer-events-auto border border-white/40"
+                                    aria-label="Previous image"
+                                >
+                                    <span className="material-symbols-outlined text-[2.2rem] font-bold">chevron_left</span>
+                                </motion.button>
+
+                                <motion.button
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: isHovering ? 1 : 0.6, x: 0 }}
+                                    whileHover={{ opacity: 1, scale: 1.15, x: 4 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                    onClick={handleNext}
+                                    className="absolute right-6 top-1/2 -translate-y-1/2 z-30 w-16 h-16 rounded-full bg-white/98 backdrop-blur-xl shadow-2xl shadow-black/10 flex items-center justify-center text-primary hover:shadow-primary/20 transition-shadow duration-300 pointer-events-auto border border-white/40"
+                                    aria-label="Next image"
+                                >
+                                    <span className="material-symbols-outlined text-[2.2rem] font-bold">chevron_right</span>
+                                </motion.button>
+                            </div>
+
+                            {/* Enhanced Side Thumbnail Navigation */}
+                            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[calc(100%+1.5rem)] hidden xl:flex flex-col gap-4 z-40">
+                                {HERO_IMAGES.map((image, index) => (
+                                    <motion.button
+                                        key={index}
+                                        onClick={() => handleThumbnailClick(index)}
+                                        className={`relative w-20 h-20 rounded-2xl overflow-hidden transition-all duration-500 group/thumb ${index === currentImageIndex
+                                            ? "ring-4 ring-primary shadow-2xl shadow-primary/40"
+                                            : "ring-2 ring-white/30 hover:ring-primary/50 opacity-50 hover:opacity-100"
+                                            }`}
+                                        whileHover={{ scale: 1.15, x: 10 }}
+                                        whileTap={{ scale: 0.9 }}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                            delay: index * 0.1,
+                                            type: "spring",
+                                            stiffness: 300,
+                                            damping: 25
+                                        }}
+                                        aria-label={`View ${image.watermark}`}
+                                    >
+                                        <Image
+                                            src={image.src}
+                                            alt={image.alt}
+                                            fill
+                                            className="object-cover transition-transform duration-500 group-hover/thumb:scale-110"
+                                        />
+
+                                        {/* Overlay */}
+                                        <div className={`absolute inset-0 transition-all duration-500 ${index === currentImageIndex
+                                            ? "bg-gradient-to-br from-primary/30 to-transparent"
+                                            : "bg-black/30 group-hover/thumb:bg-black/10"
+                                            }`} />
+
+                                        {/* Active Indicator */}
+                                        {index === currentImageIndex && (
+                                            <motion.div
+                                                layoutId="activeSideThumb"
+                                                className="absolute inset-0 border-3 border-white rounded-2xl"
+                                                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                            />
+                                        )}
+
+                                        {/* Enhanced Label on Hover */}
+                                        <motion.div
+                                            initial={{ opacity: 0, x: -10 }}
+                                            whileHover={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white/98 backdrop-blur-xl px-4 py-2 rounded-xl shadow-2xl whitespace-nowrap pointer-events-none border border-white/40"
+                                        >
+                                            <p className="text-sm font-bold text-primary">
+                                                {image.watermark}
+                                            </p>
+                                        </motion.div>
+                                    </motion.button>
+                                ))}
+                            </div>
+
+                            {/* Enhanced Bottom Thumbnail Navigation - Mobile/Tablet */}
+                            <div className="flex xl:hidden gap-3 justify-center mt-6">
+                                {HERO_IMAGES.map((image, index) => (
+                                    <motion.button
+                                        key={index}
+                                        onClick={() => handleThumbnailClick(index)}
+                                        className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden transition-all duration-500 ${index === currentImageIndex
+                                                ? "ring-3 ring-primary shadow-2xl shadow-primary/30 scale-110"
+                                                : "ring-2 ring-white/30 hover:ring-primary/50 opacity-50 hover:opacity-100"
+                                            }`}
+                                        whileHover={{ y: -6, scale: 1.1 }}
+                                        whileTap={{ scale: 0.9 }}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{
+                                            delay: index * 0.1,
+                                            type: "spring",
+                                            stiffness: 300,
+                                            damping: 25
+                                        }}
+                                        aria-label={`View ${image.watermark}`}
+                                    >
+                                        <Image
+                                            src={image.src}
+                                            alt={image.alt}
+                                            fill
+                                            className="object-cover transition-transform duration-500 hover:scale-110"
+                                        />
+                                        <div className={`absolute inset-0 transition-all duration-500 ${index === currentImageIndex
+                                                ? "bg-gradient-to-t from-primary/30 via-transparent to-transparent"
+                                                : "bg-gradient-to-t from-black/40 via-transparent to-transparent hover:from-black/20"
+                                            }`} />
+
+                                        {index === currentImageIndex && (
+                                            <motion.div
+                                                layoutId="activeBottomThumb"
+                                                className="absolute inset-0 border-3 border-primary rounded-xl"
+                                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                            />
+                                        )}
+                                    </motion.button>
+                                ))}
+                            </div>
+
+                            {/* Modern Progress Indicators */}
+                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-30">
+                                {HERO_IMAGES.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => handleDotClick(index)}
+                                        className="relative group/dot"
+                                        aria-label={`Go to slide ${index + 1}`}
+                                    >
+                                        <motion.div
+                                            className={`h-2.5 rounded-full transition-all duration-500 ${index === currentImageIndex
+                                                ? "w-14 bg-white shadow-lg shadow-white/50"
+                                                : "w-2.5 bg-white/50 group-hover/dot:bg-white/80 group-hover/dot:w-4"
+                                                }`}
+                                            layout
+                                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                        >
+                                            {index === currentImageIndex && !isHovering && (
+                                                <motion.div
+                                                    className="h-full bg-gradient-to-r from-primary via-primary/90 to-primary rounded-full shadow-md"
+                                                    initial={{ width: "0%" }}
+                                                    animate={{ width: "100%" }}
+                                                    transition={{ duration: 5, ease: "linear" }}
+                                                    key={`progress-${currentImageIndex}-${progressKey}`}
+                                                />
+                                            )}
+                                        </motion.div>
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
                 </div>

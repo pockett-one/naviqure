@@ -9,7 +9,7 @@ interface SectionDividerProps {
 
 export function SectionDivider({ className }: SectionDividerProps) {
     return (
-        <div className={`w-full h-[2.5px] pointer-events-none ${className}`}>
+        <div className={`w-full h-[1.5px] pointer-events-none ${className}`}>
             {/* ECG Spike at extreme left */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2">
                 <svg
@@ -23,7 +23,7 @@ export function SectionDivider({ className }: SectionDividerProps) {
                     <motion.path
                         d="M0 20 L40 20 L45 5 L52 35 L58 20 L120 20"
                         stroke="currentColor"
-                        strokeWidth="2.5"
+                        strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         initial={{ pathLength: 0, opacity: 0 }}

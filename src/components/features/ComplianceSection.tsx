@@ -2,12 +2,10 @@
 
 import { COMPLIANCE_FEATURES, BRAND_COLORS } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export function ComplianceSection() {
     return (
-        <section className="py-24 bg-secondary/20 relative" id="trust">
-            <SectionDivider className="absolute -top-[0.5px] left-0 z-50" />
+        <section className="py-24 bg-secondary/20 relative border-t border-primary/10" id="trust">
 
             {/* Texture wrapper with clipping */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

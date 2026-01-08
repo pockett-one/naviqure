@@ -3,12 +3,10 @@
 import { CARE_AREAS } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export function CareAreasSection() {
     return (
-        <section className="bg-secondary/40 py-24 sm:py-32 relative scroll-mt-20" id="care-areas">
-            <SectionDivider className="absolute -top-[0.5px] left-0 z-50" />
+        <section className="bg-secondary/40 py-24 sm:py-32 relative scroll-mt-20 border-t border-primary/10" id="care-areas">
 
             {/* Texture Wrapper */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
