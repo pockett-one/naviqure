@@ -72,11 +72,11 @@ export function TeamSection() {
                     </div>
                 </div>
 
-                {/* Founders - Prominent Side-by-Side */}
-                <div className="mb-24">
-                    <div className="flex items-center gap-4 mb-10">
+                {/* Founders - Compact Side by Side */}
+                <div className="mb-16 sm:mb-20 lg:mb-24">
+                    <div className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10">
                         <div className="h-px bg-primary/10 flex-1" />
-                        <h4 className="text-2xl font-bold text-primary font-heading">Founders</h4>
+                        <h4 className="text-xl sm:text-2xl font-bold text-primary font-heading">Founders</h4>
                         <div className="h-px bg-primary/10 flex-1" />
                     </div>
                     <motion.div
@@ -84,18 +84,22 @@ export function TeamSection() {
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true }}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto"
+                        className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto"
                     >
                         {CORE_TEAM.founders.filter(m => m.visible).map((founder) => (
-                            <motion.div key={founder.name} variants={item} className="flex flex-col sm:flex-row items-center sm:items-start gap-8 p-10 rounded-[2.5rem] bg-white border border-primary/15 shadow-[0_20px_50px_rgba(41,54,129,0.08)] hover:shadow-[0_30px_70px_rgba(41,54,129,0.12)] hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-primary/10 transition-colors" />
-                                <div className="w-24 h-24 rounded-3xl bg-secondary flex items-center justify-center text-primary shrink-0 relative z-10 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-inner">
-                                    <User className="w-12 h-12" />
+                            <motion.div 
+                                key={founder.name} 
+                                variants={item}
+                                className="flex items-center gap-4 sm:gap-5 lg:gap-6 p-5 sm:p-6 lg:p-7 rounded-xl sm:rounded-2xl bg-white border border-primary/15 shadow-md hover:shadow-lg transition-all duration-500 group relative overflow-hidden"
+                            >
+                                <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-primary/5 rounded-full -mr-10 -mt-10 sm:-mr-12 sm:-mt-12 blur-xl group-hover:bg-primary/10 transition-colors" />
+                                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-xl sm:rounded-2xl bg-secondary flex items-center justify-center text-primary shrink-0 relative z-10 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                                    <User className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
                                 </div>
-                                <div className="text-center sm:text-left relative z-10">
-                                    <h5 className="text-2xl font-bold text-primary font-heading mb-1">{founder.name}</h5>
-                                    <div className="text-sm font-bold text-blue-600 mb-4 bg-blue-50 px-3 py-1 rounded-full w-fit mx-auto sm:mx-0 uppercase tracking-wider">{founder.role}</div>
-                                    <p className="text-muted-foreground text-[15px] font-medium leading-relaxed italic">"{founder.bio}"</p>
+                                <div className="flex-1 min-w-0 relative z-10">
+                                    <h5 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary font-heading mb-1 sm:mb-2">{founder.name}</h5>
+                                    <div className="text-xs sm:text-sm font-bold text-blue-600 mb-2 sm:mb-3 bg-blue-50 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full w-fit uppercase tracking-wider">{founder.role}</div>
+                                    <p className="text-xs sm:text-sm lg:text-base text-muted-foreground font-medium leading-relaxed italic">"{founder.bio}"</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -103,12 +107,12 @@ export function TeamSection() {
                 </div>
 
                 {/* Grid Panels */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
                     {/* Medical Panel */}
                     <div>
-                        <div className="flex items-center gap-4 mb-10">
+                        <div className="flex items-center gap-4 mb-6 sm:mb-8">
                             <div className="h-px bg-primary/10 flex-1" />
-                            <h4 className="text-xl font-bold text-primary font-heading">Medical Panel</h4>
+                            <h4 className="text-lg sm:text-xl font-bold text-primary font-heading">Medical Panel</h4>
                             <div className="h-px bg-primary/10 flex-1" />
                         </div>
                         <motion.div
@@ -116,15 +120,15 @@ export function TeamSection() {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true }}
-                            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+                            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
                         >
                             {CORE_TEAM.medicalPanel.filter(m => m.visible).map((member, i) => (
-                                <motion.div key={i} variants={item} className="p-6 rounded-2xl border border-primary/10 bg-white shadow-md hover:bg-secondary/10 transition-all duration-500 group text-center hover:shadow-xl hover:shadow-primary/5">
-                                    <div className="w-14 h-14 mx-auto rounded-xl bg-white shadow-sm flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform ring-1 ring-primary/5">
-                                        <Stethoscope className="w-7 h-7" />
+                                <motion.div key={i} variants={item} className="p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl border border-primary/10 bg-white shadow-md hover:bg-secondary/10 transition-all duration-500 group text-center hover:shadow-xl hover:shadow-primary/5">
+                                    <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-lg sm:rounded-xl bg-white shadow-sm flex items-center justify-center text-primary mb-3 sm:mb-4 group-hover:scale-110 transition-transform ring-1 ring-primary/5">
+                                        <Stethoscope className="w-6 h-6 sm:w-7 sm:h-7" />
                                     </div>
-                                    <h5 className="font-bold text-primary text-lg">{member.name}</h5>
-                                    <div className="text-[11px] font-bold text-muted-foreground/70 uppercase tracking-widest mt-2 bg-muted px-2 py-0.5 rounded w-fit mx-auto">{member.role}</div>
+                                    <h5 className="font-bold text-primary text-base sm:text-lg mb-1">{member.name}</h5>
+                                    <div className="text-[10px] sm:text-[11px] font-bold text-muted-foreground/70 uppercase tracking-widest bg-muted px-2 py-0.5 rounded w-fit mx-auto">{member.role}</div>
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -132,9 +136,9 @@ export function TeamSection() {
 
                     {/* Advisory Panel */}
                     <div>
-                        <div className="flex items-center gap-4 mb-10">
+                        <div className="flex items-center gap-4 mb-6 sm:mb-8">
                             <div className="h-px bg-primary/10 flex-1" />
-                            <h4 className="text-xl font-bold text-primary font-heading">Advisory Panel</h4>
+                            <h4 className="text-lg sm:text-xl font-bold text-primary font-heading">Advisory Panel</h4>
                             <div className="h-px bg-primary/10 flex-1" />
                         </div>
                         <motion.div
@@ -142,15 +146,15 @@ export function TeamSection() {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true }}
-                            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+                            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
                         >
                             {CORE_TEAM.advisoryPanel.filter(m => m.visible).map((member, i) => (
-                                <motion.div key={i} variants={item} className="p-6 rounded-2xl border border-primary/20 bg-white shadow-lg shadow-primary/[0.04] hover:shadow-xl hover:shadow-primary/[0.08] transition-all duration-500 text-center group">
-                                    <div className="w-14 h-14 mx-auto rounded-xl bg-secondary flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-inner">
-                                        <Briefcase className="w-7 h-7" />
+                                <motion.div key={i} variants={item} className="p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl border border-primary/20 bg-white shadow-lg shadow-primary/[0.04] hover:shadow-xl hover:shadow-primary/[0.08] transition-all duration-500 text-center group">
+                                    <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-lg sm:rounded-xl bg-secondary flex items-center justify-center text-primary mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-inner">
+                                        <Briefcase className="w-6 h-6 sm:w-7 sm:h-7" />
                                     </div>
-                                    <h5 className="font-bold text-primary text-lg">{member.name}</h5>
-                                    <div className="text-[11px] font-bold text-muted-foreground/70 uppercase tracking-widest mt-2">{member.role}</div>
+                                    <h5 className="font-bold text-primary text-base sm:text-lg mb-1">{member.name}</h5>
+                                    <div className="text-[10px] sm:text-[11px] font-bold text-muted-foreground/70 uppercase tracking-widest">{member.role}</div>
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -158,10 +162,10 @@ export function TeamSection() {
                 </div>
 
                 {/* Hospital Partners */}
-                <div className="mt-24">
-                    <div className="flex items-center gap-4 mb-10">
+                <div className="mt-16 sm:mt-20 lg:mt-24">
+                    <div className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10">
                         <div className="h-px bg-primary/10 flex-1" />
-                        <h4 className="text-xl font-bold text-primary/60 font-heading tracking-widest uppercase text-sm">Strategic Hospital Partners</h4>
+                        <h4 className="text-base sm:text-lg lg:text-xl font-bold text-primary/60 font-heading tracking-widest uppercase">Strategic Hospital Partners</h4>
                         <div className="h-px bg-primary/10 flex-1" />
                     </div>
                     <motion.div
@@ -169,12 +173,12 @@ export function TeamSection() {
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true }}
-                        className="grid grid-cols-2 md:grid-cols-4 gap-6"
+                        className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
                     >
                         {CORE_TEAM.hospitalPartners.filter(m => m.visible).map((partner, i) => (
-                            <motion.div key={i} variants={item} className="p-6 rounded-2xl bg-secondary/20 border border-primary/5 flex flex-col items-center justify-center min-h-[120px] hover:bg-white hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group">
-                                <Building2 className="w-8 h-8 text-primary/30 group-hover:text-primary transition-colors mb-3" />
-                                <h5 className="font-bold text-primary/80 group-hover:text-primary text-center">{partner.name}</h5>
+                            <motion.div key={i} variants={item} className="p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-secondary/20 border border-primary/5 flex flex-col items-center justify-center min-h-[100px] sm:min-h-[120px] hover:bg-white hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group">
+                                <Building2 className="w-6 h-6 sm:w-8 sm:h-8 text-primary/30 group-hover:text-primary transition-colors mb-2 sm:mb-3" />
+                                <h5 className="font-bold text-primary/80 group-hover:text-primary text-center text-sm sm:text-base">{partner.name}</h5>
                             </motion.div>
                         ))}
                     </motion.div>
