@@ -100,12 +100,12 @@ export const COMPLIANCE_FEATURES = [
   {
     title: "Data Sovereignty",
     description: "Our commitment to keeping Indian patient data within national borders, hosted on local, secure cloud infrastructure.",
-    icon: "language",
+    icon: "database",
   },
   {
     title: "ABHA Integration (NDHM)",
     description: "Fully integrated with the Ayushman Bharat Digital Mission. We facilitate seamless health ID creation and record sharing within the national ecosystem.",
-    icon: "description",
+    icon: "badge",
   },
   {
     title: "Global Security Standards",

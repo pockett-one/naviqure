@@ -13,8 +13,8 @@ export default function Home() {
       <SolutionsGrid />
       <WhoWeServeSection />
       <CareAreasSection />
-      <TeamSection />
       <ComplianceSection />
+      <TeamSection />
       <Footer />
     </div>
   );
