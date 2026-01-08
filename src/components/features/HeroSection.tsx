@@ -249,7 +249,7 @@ export function HeroSection() {
                                                         {/* Placeholder Watermark - Subtle and Visible */}
                                                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
                                                             <p
-                                                                className="text-4xl lg:text-5xl xl:text-6xl font-semibold font-heading text-white/20 tracking-wide select-none whitespace-nowrap"
+                                                                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold font-heading text-white/20 tracking-wide select-none whitespace-nowrap"
                                                                 style={{
                                                                     textShadow: '0 2px 8px rgba(0,0,0,0.2)',
                                                                     transform: 'rotate(-45deg)',
@@ -274,10 +274,10 @@ export function HeroSection() {
                                     whileTap={{ scale: 0.95 }}
                                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                                     onClick={handlePrevious}
-                                    className="absolute left-6 top-1/2 -translate-y-1/2 z-30 w-16 h-16 rounded-full bg-white/98 backdrop-blur-xl shadow-2xl shadow-black/10 flex items-center justify-center text-primary hover:shadow-primary/20 transition-shadow duration-300 pointer-events-auto border border-white/40"
+                                    className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/98 backdrop-blur-xl shadow-2xl shadow-black/10 flex items-center justify-center text-primary hover:shadow-primary/20 transition-shadow duration-300 pointer-events-auto border border-white/40 touch-manipulation"
                                     aria-label="Previous image"
                                 >
-                                    <span className="material-symbols-outlined text-[2.2rem] font-bold">chevron_left</span>
+                                    <span className="material-symbols-outlined text-[1.8rem] sm:text-[2.2rem] font-bold">chevron_left</span>
                                 </motion.button>
 
                                 <motion.button
@@ -287,10 +287,10 @@ export function HeroSection() {
                                     whileTap={{ scale: 0.95 }}
                                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                                     onClick={handleNext}
-                                    className="absolute right-6 top-1/2 -translate-y-1/2 z-30 w-16 h-16 rounded-full bg-white/98 backdrop-blur-xl shadow-2xl shadow-black/10 flex items-center justify-center text-primary hover:shadow-primary/20 transition-shadow duration-300 pointer-events-auto border border-white/40"
+                                    className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/98 backdrop-blur-xl shadow-2xl shadow-black/10 flex items-center justify-center text-primary hover:shadow-primary/20 transition-shadow duration-300 pointer-events-auto border border-white/40 touch-manipulation"
                                     aria-label="Next image"
                                 >
-                                    <span className="material-symbols-outlined text-[2.2rem] font-bold">chevron_right</span>
+                                    <span className="material-symbols-outlined text-[1.8rem] sm:text-[2.2rem] font-bold">chevron_right</span>
                                 </motion.button>
                             </div>
 

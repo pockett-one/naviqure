@@ -16,6 +16,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "NaviQure AI | AI Powered Chronic Healthcare in India",
   description: "Transform healthcare data into actionable intelligence with AI-driven analytics.",
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
