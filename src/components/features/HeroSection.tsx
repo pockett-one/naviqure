@@ -70,7 +70,7 @@ export function HeroSection() {
 
 
     return (
-        <section className="relative overflow-hidden bg-white pt-24 pb-32 sm:pt-28 sm:pb-40 lg:pt-40 lg:pb-64" id="hero">
+        <section className="relative overflow-x-hidden bg-white pt-24 pb-32 sm:pt-28 sm:pb-40 lg:pt-40 lg:pb-64" id="hero">
             {/* Base Gradient */}
             <div className="absolute inset-0 bg-gradient-to-b from-white to-secondary/40 z-0" />
 
@@ -108,8 +108,8 @@ export function HeroSection() {
                 </svg>
             </div>
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 overflow-x-hidden">
+                <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-6 xl:gap-8 items-center">
 
                     {/* Text Content */}
                     <motion.div
@@ -126,10 +126,6 @@ export function HeroSection() {
                         <h1 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight lg:text-5xl xl:text-6xl mb-4 sm:mb-6 heading-gradient pb-2">
                             Building the Future of AI Powered Chronic Healthcare in India
                         </h1>
-
-                        <p className="mx-auto lg:mx-0 max-w-xl text-base sm:text-lg lg:text-xl font-medium text-primary/80 mb-3 sm:mb-4 leading-relaxed">
-                            A patient-first platform for chronic care, where intelligence meets empathy, powered by secure AI and evidence-based guidance.
-                        </p>
 
                         <p className="mx-auto lg:mx-0 max-w-2xl text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                             NaviQure is transforming India's fragmented health data into actionable insights through content standardization, responsible sharing, and AI-driven intelligence powered by foundation models — creating a transparent, interoperable, and trustworthy chronic care ecosystem.
@@ -197,11 +193,11 @@ export function HeroSection() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative w-full h-full flex items-center justify-end"
+                        className="relative w-full flex flex-col overflow-hidden"
                         style={{ perspective: "2000px" }}
                     >
-                        {/* Main Carousel Container - Larger, More Immersive */}
-                        <div className="relative w-full lg:w-[140%] lg:-mr-[20%] mt-8 lg:mt-0">
+                        {/* Main Carousel Container - Fits within bounds */}
+                        <div className="relative w-full mt-8 lg:mt-0">
                             <div
                                 className="relative w-full aspect-[3/2] sm:aspect-[4/3] lg:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden group"
                                 onMouseEnter={() => setIsHovering(true)}
@@ -428,6 +424,16 @@ export function HeroSection() {
                                 ))}
                             </div>
                         </div>
+                        
+                        {/* Text content below carousel */}
+                        <motion.p 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            className="mt-6 lg:mt-8 text-center lg:text-left w-full text-base sm:text-lg lg:text-xl font-medium text-primary/80 leading-relaxed"
+                        >
+                            A patient-first platform for chronic care, where intelligence meets empathy, powered by secure AI and evidence-based guidance.
+                        </motion.p>
                     </motion.div>
                 </div>
             </div>
