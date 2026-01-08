@@ -84,26 +84,26 @@ export function HeroSection() {
                 </span>
             </div>
 
-            {/* Wave Background (Bottom) - Intertwined Layers (Static & Tall) */}
+            {/* Wave Background (Bottom) - Three Distinct Color Layers */}
             <div className="absolute bottom-0 left-0 right-0 z-0 overflow-hidden h-64 sm:h-80 lg:h-96 pointer-events-none">
                 <svg viewBox="0 0 1440 320" className="w-full h-full block align-bottom" preserveAspectRatio="none">
-                    {/* Layer 1: Back Wave */}
+                    {/* Layer 1: Back Wave - Darkest Blue (Most Prominent) - TEMPORARILY HIDDEN */}
+                    {/* <path
+                        fill="#D4E7FF"
+                        fillOpacity="1"
+                        d="M0,80L48,100C96,120,192,160,288,170C384,180,480,160,576,140C672,120,768,100,864,108C960,116,1056,152,1152,164C1248,176,1344,164,1392,158L1440,152L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                    /> */}
+                    {/* Layer 2: Middle Wave - Medium Blue */}
                     <path
-                        fill={BRAND_COLORS.secondary}
-                        fillOpacity="0.5"
-                        d="M0,160L48,176C96,192,192,224,288,224C384,224,480,192,576,165.3C672,139,768,117,864,128C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                        fill="#E8F3FF"
+                        fillOpacity="1"
+                        d="M0,160L48,152C96,144,192,128,288,136C384,144,480,176,576,188C672,200,768,192,864,180C960,168,1056,152,1152,144C1248,136,1344,136,1392,136L1440,136L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
                     />
-                    {/* Layer 2: Middle Wave */}
+                    {/* Layer 3: Front Wave - Lightest Blue (Subtle) */}
                     <path
-                        fill={BRAND_COLORS.secondary}
-                        fillOpacity="0.7"
-                        d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,213.3C672,224,768,224,864,208C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-                    />
-                    {/* Layer 3: Front Wave (Boldest) */}
-                    <path
-                        fill={BRAND_COLORS.secondary}
-                        fillOpacity="0.9"
-                        d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                        fill="#F0F7FF"
+                        fillOpacity="1"
+                        d="M0,220L48,228C96,236,192,252,288,262C384,272,480,276,576,268C672,260,768,240,864,236C960,232,1056,244,1152,252C1248,260,1344,264,1392,266L1440,268L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
                     />
                 </svg>
             </div>
@@ -207,7 +207,7 @@ export function HeroSection() {
                                 <div className="absolute inset-0 z-0" style={{ transformStyle: 'preserve-3d' }}>
                                     {HERO_IMAGES.map((image, index) => {
                                         const isActive = index === currentImageIndex;
-                                        
+
                                         return (
                                             <motion.div
                                                 key={index}
@@ -356,8 +356,8 @@ export function HeroSection() {
                                         key={index}
                                         onClick={() => handleThumbnailClick(index)}
                                         className={`relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg sm:rounded-xl overflow-hidden transition-all duration-500 ${index === currentImageIndex
-                                                ? "ring-2 sm:ring-3 ring-primary shadow-xl sm:shadow-2xl shadow-primary/30 scale-105 sm:scale-110"
-                                                : "ring-1 sm:ring-2 ring-white/30 hover:ring-primary/50 opacity-50 hover:opacity-100"
+                                            ? "ring-2 sm:ring-3 ring-primary shadow-xl sm:shadow-2xl shadow-primary/30 scale-105 sm:scale-110"
+                                            : "ring-1 sm:ring-2 ring-white/30 hover:ring-primary/50 opacity-50 hover:opacity-100"
                                             }`}
                                         whileHover={{ y: -6, scale: 1.1 }}
                                         whileTap={{ scale: 0.9 }}
@@ -378,8 +378,8 @@ export function HeroSection() {
                                             className="object-cover transition-transform duration-500 hover:scale-110"
                                         />
                                         <div className={`absolute inset-0 transition-all duration-500 ${index === currentImageIndex
-                                                ? "bg-gradient-to-t from-primary/30 via-transparent to-transparent"
-                                                : "bg-gradient-to-t from-black/40 via-transparent to-transparent hover:from-black/20"
+                                            ? "bg-gradient-to-t from-primary/30 via-transparent to-transparent"
+                                            : "bg-gradient-to-t from-black/40 via-transparent to-transparent hover:from-black/20"
                                             }`} />
 
                                         {index === currentImageIndex && (
@@ -424,9 +424,9 @@ export function HeroSection() {
                                 ))}
                             </div>
                         </div>
-                        
+
                         {/* Text content below carousel */}
-                        <motion.p 
+                        <motion.p
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
