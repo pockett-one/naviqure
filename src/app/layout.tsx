@@ -15,11 +15,61 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "NaviQure AI | AI Powered Chronic Healthcare in India",
-  description: "Transform healthcare data into actionable intelligence with AI-driven analytics.",
+  metadataBase: new URL('https://naviqure.ai'),
+  title: {
+    default: "NaviQure AI | AI Powered Chronic Healthcare in India",
+    template: "%s | NaviQure AI"
+  },
+  description: "Transform healthcare data into actionable intelligence with AI-driven analytics. ABHA compliant solution for chronic disease management and preventive care in India.",
+  keywords: ["AI healthcare India", "Chronic disease management", "Preventive healthcare AI", "ABHA compliant", "Electronic Health Records", "NaviQure", "Health analytics India"],
+  authors: [{ name: "NaviQure AI", url: "https://naviqure.ai" }],
+  creator: "NaviQure AI",
+  publisher: "NaviQure AI",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: '/favicon.svg',
     apple: '/favicon.svg',
+  },
+  openGraph: {
+    title: "NaviQure AI | AI Powered Chronic Healthcare in India",
+    description: "Transform healthcare data into actionable intelligence with AI-driven analytics. Revolutionizing chronic care management with predictive insights.",
+    url: 'https://naviqure.ai',
+    siteName: 'NaviQure AI',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: '/hero-solutions.png',
+        width: 1200,
+        height: 630,
+        alt: 'NaviQure AI - Healthcare Intelligence Platform',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "NaviQure AI | Next-Gen Healthcare Intelligence",
+    description: "Transforming Indian healthcare with AI-driven chronic disease management and predictive analytics.",
+    images: ['/hero-solutions.png'],
+    creator: '@naviqure',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://naviqure.ai',
   },
 };
 
