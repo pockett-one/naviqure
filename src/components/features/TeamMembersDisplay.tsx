@@ -140,7 +140,7 @@ export function TeamMembersDisplay({ memberType }: TeamMembersDisplayProps) {
                                     <div className="flex-1 min-w-0 relative z-10">
                                         <h5 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary font-heading mb-1 sm:mb-2">{founder.name}</h5>
                                         <div className="text-xs sm:text-sm font-bold text-blue-600 mb-2 sm:mb-3 bg-blue-50 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full w-fit uppercase tracking-wider">{founder.role}</div>
-                                        <p className="text-xs sm:text-sm lg:text-base text-muted-foreground font-medium leading-relaxed">{founder.bio}</p>
+                                        <p className="text-xs sm:text-sm lg:text-base text-muted-foreground font-medium leading-relaxed">{(founder as any).bio}</p>
                                         {(founder as any).detailedBio && (
                                             <div className="mt-3 sm:mt-4">
                                                 <span className="text-sm sm:text-base text-primary font-bold group-hover:text-primary/80 transition-colors">Read full bio →</span>
