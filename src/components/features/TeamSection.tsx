@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Building2, Flag, FileCheck, Telescope } from "lucide-react";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TeamMembersDisplay } from "./TeamMembersDisplay";
+import { InfoCard } from "@/components/ui/InfoCard";
 
 export function TeamSection() {
     const container = {
@@ -49,39 +50,24 @@ export function TeamSection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-left max-w-5xl mx-auto mb-20">
-                    <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
-                        <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                            <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                                <Flag className="size-4 sm:size-5" />
-                            </span>
-                            <h4 className="text-primary font-bold text-base sm:text-lg font-heading">Our Mission</h4>
-                        </div>
-                        <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
-                            Democratizing specialty care through data-driven empowerment, giving patients the tools to manage complex health journeys with clarity.
-                        </p>
-                    </div>
-                    <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
-                        <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                            <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                                <Telescope className="size-4 sm:size-5" />
-                            </span>
-                            <h4 className="text-primary font-bold text-base sm:text-lg font-heading">Our Vision</h4>
-                        </div>
-                        <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
-                            To set the global standard for healthcare platforms through engineering excellence and innovation at scale.
-                        </p>
-                    </div>
-                    <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
-                        <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                            <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                                <FileCheck className="size-4 sm:size-5" />
-                            </span>
-                            <h4 className="text-primary font-bold text-base sm:text-lg font-heading">Clinical Governance</h4>
-                        </div>
-                        <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
-                            Our medical advisory board ensures AI safety and clinical accuracy in high-stakes chronic care, maintaining the highest standards of safety.
-                        </p>
-                    </div>
+                    <InfoCard
+                        icon={Flag}
+                        title="Our Mission"
+                        description="Democratizing specialty care through data-driven empowerment, giving patients the tools to manage complex health journeys with clarity."
+                        watermark="M"
+                    />
+                    <InfoCard
+                        icon={Telescope}
+                        title="Our Vision"
+                        description="To set the global standard for healthcare platforms through engineering excellence and innovation at scale."
+                        watermark="V"
+                    />
+                    <InfoCard
+                        icon={FileCheck}
+                        title="Clinical Governance"
+                        description="Our medical advisory board ensures AI safety and clinical accuracy in high-stakes chronic care, maintaining the highest standards of safety."
+                        watermark="G"
+                    />
                 </div>
 
                 {/* Advisory Panel */}

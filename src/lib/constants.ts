@@ -39,7 +39,7 @@ export const NAV_LINKS = [
       { href: "#care-areas", label: "Metabolic & CV" },
     ]
   },
-  { href: "/team", label: "About Us" },
+  { href: "/#team", label: "About Us" },
 ] as const;
 
 export const SOLUTIONS = [
