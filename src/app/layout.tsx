@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { CookieConsent } from "@/components/ui/CookieConsent";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -102,9 +103,11 @@ export default function RootLayout({
         className={`${plusJakartaSans.variable} ${outfit.variable} font-sans antialiased`}
         suppressHydrationWarning
       >
-        <Header />
-        <main>{children}</main>
-        <CookieConsent />
+        <ErrorBoundary>
+          <Header />
+          <main>{children}</main>
+          <CookieConsent />
+        </ErrorBoundary>
       </body>
     </html>
   );
