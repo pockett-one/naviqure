@@ -184,7 +184,7 @@ export const CORE_TEAM = {
       name: "Major (Dr.) Shrijit Nair",
       role: "Clinical Governance",
       image: "",
-      bio: "Consultant Anaesthetist | ex-NHS, Indian Army",
+      bio: "Consultant Anaesthetist\nex-NHS, Indian Army",
       detailedBio: "Major (Dr.) Shrijit Nair is a distinguished clinical leader with over two decades of experience in high-stakes medicine across Ireland, the UK, and India. A substantive Consultant in Liver Transplant Anaesthesia at St. Vincent's University Hospital, Dublin, he brings world-class expertise in managing complex, multi-organ clinical pathways and perioperative care. His career is defined by a commitment to patient safety and clinical innovation, having served as a Senior Clinical Fellow at King's College Hospital, London—one of the world's leading centers for liver transplantation.\n\nPrior to his consultant roles, he served with distinction as a Medical Officer in the Indian Army Medical Corps, providing emergency care in extreme hypoxic conditions at Siachen, the world's highest battlefield. For his humanitarian services in Ladakh, he was awarded a Meritorious Commendation Medal from the Indian Army Chief of Staff.\n\nAt NaviQure AI, Dr. Nair leads Clinical Governance, ensuring all AI-driven solutions meet the highest international medical standards.",
       visible: true,
     },
