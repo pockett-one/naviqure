@@ -70,7 +70,7 @@ export function HeroSection() {
 
 
     return (
-        <section className="relative overflow-x-hidden bg-white pt-24 pb-24 sm:pt-28 sm:pb-28 lg:pt-40 lg:pb-40" id="hero">
+        <section className="relative overflow-x-hidden bg-white pt-20 pb-16 sm:pt-24 sm:pb-20 lg:pt-32 lg:pb-24" id="hero">
             {/* Base Gradient */}
             <div className="absolute inset-0 bg-gradient-to-b from-white to-secondary/40 z-0" />
 

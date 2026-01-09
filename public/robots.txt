@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+Host: https://naviqure.ai
+Sitemap: https://naviqure.ai/sitemap.xml
