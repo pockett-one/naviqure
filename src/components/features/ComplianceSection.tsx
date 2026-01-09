@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function ComplianceSection() {
     return (
-        <section className="py-16 sm:py-20 lg:py-24 bg-secondary/20 relative border-t border-primary/10" id="trust">
+        <section className="py-12 sm:py-16 lg:py-20 bg-secondary/20 relative border-t border-primary/10" id="trust">
 
             {/* Texture wrapper with clipping */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

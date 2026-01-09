@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export function CareAreasSection() {
     return (
-        <section className="bg-secondary/40 py-24 sm:py-32 relative scroll-mt-20 border-t border-primary/10" id="care-areas">
+        <section className="bg-secondary/40 py-12 sm:py-16 lg:py-20 relative scroll-mt-20 border-t border-primary/10" id="care-areas">
 
             {/* Texture Wrapper */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">

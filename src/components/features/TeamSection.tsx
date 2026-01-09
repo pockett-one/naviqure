@@ -23,7 +23,7 @@ export function TeamSection() {
     };
 
     return (
-        <section className="py-24 bg-gradient-to-b from-[#F8FAFF] to-white relative scroll-mt-20" id="team">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-[#F8FAFF] to-white relative scroll-mt-20" id="team">
             <SectionDivider className="absolute -top-[0.5px] left-0 z-40" />
             {/* Background elements wrapper for overflow clipping */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

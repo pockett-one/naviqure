@@ -70,7 +70,7 @@ export function Footer() {
                             <li><Link href="#" className="text-primary/70 hover:text-primary transition-colors">Privacy Policy (DPDP)</Link></li>
                             <li><Link href="#" className="text-primary/70 hover:text-primary transition-colors">Terms of Service</Link></li>
                             <li><Link href="#" className="text-primary/70 hover:text-primary transition-colors">Business Associate Agreement (BAA)</Link></li>
-                            <li><Link href="#" className="text-primary/70 hover:text-primary transition-colors">ABHA Consent Manager</Link></li>
+
                         </ul>
                     </div>
 

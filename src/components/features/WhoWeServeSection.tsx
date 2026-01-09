@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function WhoWeServeSection() {
     return (
-        <section className="py-24 bg-gradient-to-b from-[#F0F7FF] to-white relative scroll-mt-20 border-t border-primary/10" id="who-we-serve">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-[#F0F7FF] to-white relative scroll-mt-20 border-t border-primary/10" id="who-we-serve">
 
             {/* Background elements wrapper for overflow clipping */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

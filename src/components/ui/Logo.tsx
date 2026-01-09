@@ -15,7 +15,7 @@ export function Logo({ className }: { className?: string }) {
     return (
         <svg viewBox="0 0 100 100" className={className} aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             {/* Center Circle - Always solid */}
-            <circle cx="50" cy="50" r="14" fill={BRAND_COLORS.primary} />
+            <circle cx="50" cy="50" r="14" fill="#000000" />
 
             {spokeBulbPairs.map((pair, i) => (
                 <motion.g
@@ -33,18 +33,20 @@ export function Logo({ className }: { className?: string }) {
                     }}
                     style={{ transformOrigin: "50% 50%" }}
                 >
-                    <line
-                        x1="50" y1="50"
-                        x2={pair.line.x2} y2={pair.line.y2}
-                        stroke={BRAND_COLORS.primary}
-                        strokeWidth="4"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    />
+                    {i !== 0 && (
+                        <line
+                            x1="50" y1="50"
+                            x2={pair.line.x2} y2={pair.line.y2}
+                            stroke="#000000"
+                            strokeWidth="4"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                    )}
                     <circle
                         cx={pair.circle.cx} cy={pair.circle.cy}
                         r="12"
-                        fill={BRAND_COLORS.primary}
+                        fill="#000000"
                     />
                 </motion.g>
             ))}
