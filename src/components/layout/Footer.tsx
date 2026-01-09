@@ -10,12 +10,12 @@ import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
     return (
-        <footer className="bg-secondary/30 pt-16 pb-8 relative">
+        <footer className="bg-secondary/30 pt-8 pb-4 relative">
             <SectionDivider className="absolute -top-[0.5px] left-0 z-40" />
 
             {/* Wave Background Wrapper - Two Distinct Color Layers */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute bottom-0 left-0 right-0 z-0 h-64">
+                <div className="absolute bottom-0 left-0 right-0 z-0 h-32">
                     <svg viewBox="0 0 1440 320" className="w-full h-full block align-bottom" preserveAspectRatio="none">
                         {/* Layer 1: Back Wave - Medium Blue */}
                         <path
@@ -34,53 +34,53 @@ export function Footer() {
             </div>
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between gap-10 mb-10">
+                <div className="flex flex-col md:flex-row justify-between gap-6 mb-4">
 
                     {/* Brand Column */}
-                    <div className="space-y-4 max-w-sm">
+                    <div className="space-y-4 max-w-lg">
                         <Link href="/" className="flex items-center gap-3">
-                            <Logo className="h-10 w-10" />
-                            <span className="text-2xl font-bold font-heading text-primary tracking-tight">NaviQure AI</span>
+                            <Logo className="h-8 w-8" />
+                            <span className="text-xl font-bold font-heading text-primary tracking-tight">NaviQure AI</span>
                         </Link>
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                            Intelligence for a Healthier Tomorrow.
-                        </p>
-                        <div className="space-y-2 text-xs text-muted-foreground font-medium">
-                            <p className="flex items-center gap-2">
-                                <span className="material-symbols-outlined text-[1.2rem] text-primary/60">mail</span>
-                                <a href="mailto:hello@naviqure.ai" className="hover:text-primary transition-colors">hello@naviqure.ai</a>
-                            </p>
-                            <p className="flex items-center gap-2 text-left">
-                                <span className="material-symbols-outlined text-[1.2rem] text-primary/60">location_on</span>
+
+                        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground font-medium">
+                            <div className="flex items-center gap-2">
+                                <span className="material-symbols-outlined text-[1.1rem] text-primary/60">mail</span>
+                                <a href="mailto:info@naviqure.ai" className="hover:text-primary transition-colors">info@naviqure.ai</a>
+                            </div>
+                            <span className="hidden sm:inline-block text-primary/40 font-bold">•</span>
+                            <div className="flex items-center gap-2">
+                                <span className="material-symbols-outlined text-[1.1rem] text-primary/60">location_on</span>
                                 <a
                                     href="https://maps.app.goo.gl/q74UgswfncajS3m88"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="hover:text-primary transition-colors"
                                 >
-                                    Lake Homes, Powai, Mumbai, MH.
+                                    Powai, Mumbai, MH
                                 </a>
-                            </p>
+                            </div>
                         </div>
                     </div>
 
                     {/* Legal Links */}
-                    <div className="text-left md:text-right">
-                        <ul className="space-y-3 text-sm font-medium">
-                            <li><Link href="#" className="text-primary/70 hover:text-primary transition-colors">Privacy Policy (DPDP)</Link></li>
-                            <li><Link href="#" className="text-primary/70 hover:text-primary transition-colors">Terms of Service</Link></li>
-                            <li><Link href="#" className="text-primary/70 hover:text-primary transition-colors">Business Associate Agreement (BAA)</Link></li>
-
-                        </ul>
+                    <div className="text-left md:text-right flex items-center md:items-end">
+                        <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-sm font-medium">
+                            <Link href="#" className="text-primary/70 hover:text-primary transition-colors">Privacy Policy</Link>
+                            <span className="text-primary/40 font-bold">•</span>
+                            <Link href="#" className="text-primary/70 hover:text-primary transition-colors">Terms of Service</Link>
+                            <span className="text-primary/40 font-bold">•</span>
+                            <Link href="#" className="text-primary/70 hover:text-primary transition-colors">Business Associate Agreement</Link>
+                        </div>
                     </div>
 
                 </div>
 
-                <div className="pt-4 flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
+                <div className="flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-muted-foreground">
                     <p>© {new Date().getFullYear()} NaviQure AI. All rights reserved.</p>
-                    <div className="flex items-center gap-4 mt-4 md:mt-0 font-medium">
+                    <div className="flex items-center gap-4 mt-2 md:mt-0 font-medium">
                         <p>HIPAA Compliant</p>
-                        <span className="w-1 h-1 rounded-full bg-border" />
+                        <span className="text-primary/40 font-bold">•</span>
                         <p>ABHA Ready</p>
                     </div>
                 </div>

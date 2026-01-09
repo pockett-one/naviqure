@@ -43,55 +43,45 @@ export function TeamSection() {
             </div>
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center max-w-4xl mx-auto mb-20">
+                <div className="text-center max-w-4xl mx-auto mb-12">
                     <h2 className="text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">Governance & Leadership</h2>
                     <h3 className="text-4xl font-bold font-heading heading-gradient pb-2">The Team Behind <span className="text-primary/60">NaviQure</span></h3>
-
-                    <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-left max-w-5xl mx-auto">
-                        <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
-                            <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                                    <Flag className="size-4 sm:size-5" />
-                                </span>
-                                <h4 className="text-primary font-bold text-base sm:text-lg font-heading">Our Mission</h4>
-                            </div>
-                            <p className="text-muted-foreground text-sm sm:text-[15px] font-medium leading-relaxed">
-                                Democratizing specialty care through data-driven empowerment, giving patients the tools to manage complex health journeys with clarity.
-                            </p>
-                        </div>
-                        <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
-                            <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                                    <Telescope className="size-4 sm:size-5" />
-                                </span>
-                                <h4 className="text-primary font-bold text-base sm:text-lg font-heading">Our Vision</h4>
-                            </div>
-                            <p className="text-muted-foreground text-sm sm:text-[15px] font-medium leading-relaxed">
-                                To set the global standard for healthcare platforms through engineering excellence and innovation at scale.
-                            </p>
-                        </div>
-                        <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
-                            <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                                    <FileCheck className="size-4 sm:size-5" />
-                                </span>
-                                <h4 className="text-primary font-bold text-base sm:text-lg font-heading">Clinical Governance</h4>
-                            </div>
-                            <p className="text-muted-foreground text-sm sm:text-[15px] font-medium leading-relaxed">
-                                Our medical advisory board ensures AI safety and clinical accuracy in high-stakes chronic care, maintaining the highest standards of safety.
-                            </p>
-                        </div>
-                    </div>
                 </div>
 
-                {/* Founders */}
-                <div className="mb-16 sm:mb-20 lg:mb-24">
-                    <div className="flex items-center gap-4 mb-6 sm:mb-8 lg:mb-10">
-                        <div className="h-px bg-primary/10 flex-1" />
-                        <h4 className="text-xl sm:text-2xl font-bold text-primary font-heading">Founders</h4>
-                        <div className="h-px bg-primary/10 flex-1" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-left max-w-5xl mx-auto mb-20">
+                    <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
+                        <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                            <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                <Flag className="size-4 sm:size-5" />
+                            </span>
+                            <h4 className="text-primary font-bold text-base sm:text-lg font-heading">Our Mission</h4>
+                        </div>
+                        <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
+                            Democratizing specialty care through data-driven empowerment, giving patients the tools to manage complex health journeys with clarity.
+                        </p>
                     </div>
-                    <TeamMembersDisplay memberType="founders" />
+                    <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
+                        <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                            <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                <Telescope className="size-4 sm:size-5" />
+                            </span>
+                            <h4 className="text-primary font-bold text-base sm:text-lg font-heading">Our Vision</h4>
+                        </div>
+                        <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
+                            To set the global standard for healthcare platforms through engineering excellence and innovation at scale.
+                        </p>
+                    </div>
+                    <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
+                        <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                            <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                <FileCheck className="size-4 sm:size-5" />
+                            </span>
+                            <h4 className="text-primary font-bold text-base sm:text-lg font-heading">Clinical Governance</h4>
+                        </div>
+                        <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
+                            Our medical advisory board ensures AI safety and clinical accuracy in high-stakes chronic care, maintaining the highest standards of safety.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Advisory Panel */}
@@ -102,6 +92,16 @@ export function TeamSection() {
                         <div className="h-px bg-primary/10 flex-1" />
                     </div>
                     <TeamMembersDisplay memberType="advisory" />
+                </div>
+
+                {/* Founders */}
+                <div className="mb-16 sm:mb-20 lg:mb-24">
+                    <div className="flex items-center gap-4 mb-6 sm:mb-8 max-w-5xl mx-auto lg:mb-10">
+                        <div className="h-px bg-primary/10 flex-1" />
+                        <h4 className="text-xl sm:text-2xl font-bold text-primary font-heading">Founders</h4>
+                        <div className="h-px bg-primary/10 flex-1" />
+                    </div>
+                    <TeamMembersDisplay memberType="founders" />
                 </div>
 
                 {/* View Full Team CTA */}

@@ -119,31 +119,42 @@ export function HeroSection() {
                             Building the Future of AI Powered Chronic Healthcare in India
                         </h1>
 
-                        <p className="mx-auto lg:mx-0 max-w-xl text-sm sm:text-[15px] text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
+                        <p className="mx-auto lg:mx-0 max-w-xl text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                             NaviQure is transforming India's fragmented health data into actionable insights through content standardization, responsible sharing, and AI-driven intelligence.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 justify-center lg:justify-start">
-                            {/* Primary CTA */}
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 justify-center lg:justify-start relative">
+                            {/* Primary CTA - Request Appointment */}
                             <div
-                                className="relative group w-full sm:w-auto"
+                                className="relative group w-full sm:w-auto flex flex-col items-center sm:items-start"
+                                onMouseEnter={() => setHoveredCTA('appointment')}
+                                onMouseLeave={() => setHoveredCTA(null)}
                             >
-                                <Button size="lg" className="text-sm sm:text-base px-6 h-10 sm:h-11 bg-primary hover:bg-[#1E247D] shadow-md shadow-primary/20 transition-all hover:scale-[1.02] rounded-full w-full sm:w-auto gap-2">
-                                    Get started <span className="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
-                                </Button>
-                            </div>
+                                <a href="mailto:info@naviqure.ai" className="cursor-pointer mb-2">
+                                    <Button size="lg" className="text-sm sm:text-base px-6 h-10 sm:h-11 bg-primary hover:bg-[#1E247D] shadow-md shadow-primary/20 transition-all hover:scale-[1.02] rounded-full w-full sm:w-auto gap-2 cursor-pointer">
+                                        Request Appointment <span className="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
+                                    </Button>
+                                </a>
 
-                            {/* Secondary CTA */}
-                            <div
-                                className="relative group w-full sm:w-auto"
-                            >
-                                <Button size="lg" variant="outline" className="text-sm sm:text-base px-6 h-10 sm:h-11 border-primary text-primary hover:bg-primary/5 transition-all hover:scale-[1.02] rounded-full w-full sm:w-auto font-semibold">
-                                    Request Appointment
-                                </Button>
+                                {/* Restored Hover Tagline */}
+                                <AnimatePresence>
+                                    {hoveredCTA === 'appointment' && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -5 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -5 }}
+                                            className="absolute top-14 left-0 w-full text-center sm:text-left hidden sm:block pointer-events-none"
+                                        >
+                                            <span className="text-xs font-semibold text-primary/80 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-primary/10 shadow-sm">
+                                                Schedule a consultation
+                                            </span>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         </div>
 
-                        <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-primary/60 font-medium">
+                        <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-primary/60 font-medium">
                             <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1rem] opacity-80">shield_locked</span> ABHA Ready</div>
                             <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1rem] opacity-80">vital_signs</span> Clinical Grade</div>
                             <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1rem] opacity-80">auto_awesome</span> AI Powered</div>

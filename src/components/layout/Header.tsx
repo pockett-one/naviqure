@@ -30,9 +30,9 @@ export function Header() {
                         <Link href="/" className="flex items-center gap-3 group">
                             <Logo className="h-10 w-10 transition-transform" />
                             <div className="flex flex-col">
-                                <span className="text-xl font-bold font-heading text-black tracking-tight leading-none group-hover:text-black/80 transition-colors">NaviQure AI</span>
+                                <span className="text-xl font-bold font-heading text-primary tracking-tight leading-none group-hover:text-primary/80 transition-colors">NaviQure AI</span>
                                 <div className="flex items-center gap-2">
-                                    <span className="text-[10px] text-muted-foreground font-medium tracking-wide group-hover:text-primary/60 transition-colors">Towards Better Health and Tomorrow</span>
+                                    <span className="text-sm text-muted-foreground font-medium tracking-wide group-hover:text-primary/60 transition-colors">Towards Better Health and Tomorrow</span>
                                     <svg width="24" height="12" viewBox="0 0 24 12" className="text-primary/40">
                                         <motion.path
                                             d="M0 6 H4 L6 2 L8 10 L10 6 H24"
@@ -57,7 +57,7 @@ export function Header() {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center space-x-1">
+                    <nav className="hidden md:flex items-center space-x-2">
                         {NAV_LINKS.map((link) => (
                             <div
                                 key={link.label}
@@ -68,7 +68,7 @@ export function Header() {
                                 <Link
                                     href={link.href}
                                     className={cn(
-                                        "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-1",
+                                        "px-4 py-2 rounded-full text-[15px] font-medium transition-all duration-300 flex items-center gap-1",
                                         pathname === link.href
                                             ? "bg-secondary text-primary shadow-sm ring-1 ring-primary/10"
                                             : "text-primary hover:bg-muted hover:text-primary/80"
@@ -113,13 +113,10 @@ export function Header() {
 
                     {/* Contact / CTA */}
                     <div className="flex-1 hidden md:flex items-center justify-end">
-                        <div className="hidden lg:flex items-center gap-2 bg-secondary/50 border border-border px-3 py-1.5 rounded-full mr-4">
-                            <span className="material-symbols-outlined text-[1.2rem] text-primary">verified_user</span>
-                            <span className="text-[10px] font-bold text-primary whitespace-nowrap uppercase tracking-wider">HIPAA & ABHA Compliant</span>
+                        <div className="hidden lg:flex items-center gap-2 bg-primary text-white border border-primary px-4 py-2 rounded-full shadow-md">
+                            <span className="material-symbols-outlined text-[1.3rem]">verified_user</span>
+                            <span className="text-xs font-bold whitespace-nowrap uppercase tracking-wider">HIPAA & ABHA Compliant</span>
                         </div>
-                        <Button className="bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all hover:scale-105 rounded-full px-6 font-semibold">
-                            Sign In
-                        </Button>
                     </div>
 
                     {/* Mobile Menu */}

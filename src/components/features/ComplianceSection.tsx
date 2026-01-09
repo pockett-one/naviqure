@@ -71,7 +71,7 @@ export function ComplianceSection() {
                                         <span className="px-2 py-0.5 rounded-full bg-primary/5 text-primary text-[8px] sm:text-[9px] font-bold uppercase tracking-tighter opacity-80 ring-1 ring-primary/10">{badges[i]}</span>
                                     </div>
                                     <h3 className="font-bold text-primary mb-2 text-sm sm:text-base lg:text-lg font-heading">{feature.title}</h3>
-                                    <p className="text-xs sm:text-sm lg:text-sm text-muted-foreground font-medium leading-relaxed">{feature.description}</p>
+                                    <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">{feature.description}</p>
                                 </motion.div>
                             )
                         })}

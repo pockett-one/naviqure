@@ -15,8 +15,8 @@ export function CareAreasSection() {
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="mx-auto max-w-2xl text-center mb-16">
-                    <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Clinical Focus</h2>
-                    <h3 className="mt-2 text-4xl font-bold font-heading heading-gradient pb-2">Treatment Continuity</h3>
+                    <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Featured Care Areas</h2>
+                    <h3 className="mt-2 text-4xl font-bold font-heading heading-gradient pb-2">Clinical Focus</h3>
                     <p className="mt-4 text-lg text-muted-foreground">Specialized care pathways for high-complexity chronic conditions.</p>
                 </div>
 
@@ -41,7 +41,7 @@ export function CareAreasSection() {
                                                 </span>
                                             </div>
                                             <div className="px-3 py-1 rounded-full bg-secondary text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">
-                                                Specialized
+                                                Specialization
                                             </div>
                                         </div>
 
@@ -51,7 +51,7 @@ export function CareAreasSection() {
                                         </h3>
 
                                         {/* Description */}
-                                        <p className="text-muted-foreground text-sm lg:text-[15px] font-medium leading-relaxed">
+                                        <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
                                             {area.description}
                                         </p>
                                     </div>

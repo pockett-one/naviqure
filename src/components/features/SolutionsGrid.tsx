@@ -7,7 +7,7 @@ import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export function SolutionsGrid() {
     return (
-        <section className="py-12 sm:py-16 lg:py-20 bg-white relative scroll-mt-20" id="solutions">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white relative scroll-mt-20" id="our-offerings">
             <SectionDivider className="absolute -top-[0.5px] left-0 z-40" />
             {/* Texture */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-primary)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-primary)_1px,transparent_1px)] opacity-[0.04] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
@@ -17,7 +17,7 @@ export function SolutionsGrid() {
                 {/* Section 1: Platform */}
                 <div>
                     <div className="mx-auto max-w-2xl text-center mb-16">
-                        <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Platform</h2>
+                        <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Our Offerings</h2>
                         <h3 className="mt-2 text-4xl font-bold font-heading heading-gradient pb-2">
                             Healthcare Intelligence
                         </h3>
@@ -57,7 +57,7 @@ export function SolutionsGrid() {
                                             </CardTitle>
 
                                             {/* Description */}
-                                            <CardDescription className="text-sm lg:text-[15px] font-medium text-muted-foreground leading-relaxed">
+                                            <CardDescription className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
                                                 {solution.description}
                                             </CardDescription>
                                         </div>
