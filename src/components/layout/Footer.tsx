@@ -92,9 +92,9 @@ export function Footer() {
                     {/* Legal Links */}
                     <div className="text-left md:text-right flex items-center md:items-end">
                         <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-sm font-medium">
-                            <Link href="#" className="text-primary/70 hover:text-primary transition-colors">Privacy Policy</Link>
+                            <Link href="/privacy" className="text-primary/70 hover:text-primary transition-colors">Privacy Policy</Link>
                             <span className="text-primary/40 font-bold">•</span>
-                            <Link href="#" className="text-primary/70 hover:text-primary transition-colors">Terms of Service</Link>
+                            <Link href="/terms" className="text-primary/70 hover:text-primary transition-colors">Terms of Service</Link>
                             <span className="text-primary/40 font-bold">•</span>
                             <Link href="#" className="text-primary/70 hover:text-primary transition-colors">Business Associate Agreement</Link>
                         </div>

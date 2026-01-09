@@ -219,8 +219,9 @@ export function HeroSection() {
                                                     fill
                                                     className="object-cover"
                                                     priority={index === currentImageIndex}
+                                                    loading={index === currentImageIndex ? "eager" : "lazy"}
                                                 />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                                             </motion.div>
                                         );
                                     })}
@@ -242,14 +243,19 @@ export function HeroSection() {
                                     <span className="material-symbols-outlined text-xl">chevron_right</span>
                                 </button>
 
-                                {/* Compact Dots */}
-                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-30">
-                                    {HERO_IMAGES.map((_, index) => (
+                                {/* Labeled Slide Indicators */}
+                                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4 z-30 px-4">
+                                    {HERO_IMAGES.map((image, index) => (
                                         <button
                                             key={index}
                                             onClick={() => handleDotClick(index)}
-                                            className={`h-1.5 rounded-full transition-all duration-300 ${index === currentImageIndex ? "w-6 bg-white" : "w-1.5 bg-white/60 hover:bg-white/80"}`}
-                                        />
+                                            className={`group flex flex-col items-center gap-1 min-w-[60px] transition-all duration-300 ${index === currentImageIndex ? "opacity-100 scale-105" : "opacity-50 hover:opacity-80"}`}
+                                        >
+                                            <span className={`text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white shadow-black/20 drop-shadow-md ${index === currentImageIndex ? "text-shadow-sm" : ""}`}>
+                                                {image.watermark}
+                                            </span>
+                                            <div className={`h-1 rounded-full bg-white shadow-sm transition-all duration-300 ${index === currentImageIndex ? "w-full" : "w-2 group-hover:w-4"}`} />
+                                        </button>
                                     ))}
                                 </div>
                             </div>
