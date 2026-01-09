@@ -26,6 +26,7 @@ const HERO_IMAGES = [
 
 export function HeroSection() {
     const [hoveredCTA, setHoveredCTA] = useState<string | null>(null);
+    const [showCopied, setShowCopied] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isHovering, setIsHovering] = useState(false);
     const [direction, setDirection] = useState(0);
@@ -130,26 +131,52 @@ export function HeroSection() {
                                 onMouseEnter={() => setHoveredCTA('appointment')}
                                 onMouseLeave={() => setHoveredCTA(null)}
                             >
-                                <a href="mailto:info@naviqure.ai" className="cursor-pointer mb-2">
-                                    <Button size="lg" className="text-sm sm:text-base px-6 h-10 sm:h-11 bg-primary hover:bg-[#1E247D] shadow-md shadow-primary/20 transition-all hover:scale-[1.02] rounded-full w-full sm:w-auto gap-2 cursor-pointer">
-                                        Request Appointment <span className="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
-                                    </Button>
-                                </a>
+                                <Button asChild size="lg" className="mb-2 text-sm sm:text-base px-6 h-10 sm:h-11 bg-primary hover:bg-[#1E247D] shadow-md shadow-primary/20 transition-all hover:scale-[1.02] rounded-full w-full sm:w-auto gap-2 cursor-pointer">
+                                    <a
+                                        href="mailto:info@naviqure.ai"
+                                        onClick={(e) => {
+                                            // 1. Copy to clipboard
+                                            navigator.clipboard.writeText("info@naviqure.ai");
 
-                                {/* Restored Hover Tagline */}
-                                <AnimatePresence>
-                                    {hoveredCTA === 'appointment' && (
+                                            // 2. Show feedback
+                                            setShowCopied(true);
+                                            setTimeout(() => setShowCopied(false), 2500);
+
+                                            // 3. Allow default mailto behavior
+                                        }}
+                                    >
+                                        Request Appointment <span className="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
+                                    </a>
+                                </Button>
+
+                                {/* Smart Hover/Feedback Tagline */}
+                                <AnimatePresence mode="wait">
+                                    {showCopied ? (
                                         <motion.div
+                                            key="copied-feedback"
                                             initial={{ opacity: 0, y: -5 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -5 }}
                                             className="absolute top-14 left-0 w-full text-center sm:text-left hidden sm:block pointer-events-none"
                                         >
-                                            <span className="text-xs font-semibold text-primary/80 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-primary/10 shadow-sm">
-                                                Schedule a consultation
+                                            <span className="text-xs font-bold text-green-600 bg-green-50 backdrop-blur-sm px-3 py-1 rounded-full border border-green-200 shadow-sm whitespace-nowrap flex items-center gap-1 w-fit mx-auto sm:mx-0">
+                                                <span className="material-symbols-outlined text-[1rem]">check_circle</span>
+                                                Email copied to clipboard!
                                             </span>
                                         </motion.div>
-                                    )}
+                                    ) : hoveredCTA === 'appointment' ? (
+                                        <motion.div
+                                            key="hover-tagline"
+                                            initial={{ opacity: 0, y: -5 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -5 }}
+                                            className="absolute top-14 left-0 w-full text-center sm:text-left hidden sm:block pointer-events-none"
+                                        >
+                                            <span className="text-xs font-semibold text-primary/80 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-primary/10 shadow-sm whitespace-nowrap">
+                                                Start your data-driven care journey today.
+                                            </span>
+                                        </motion.div>
+                                    ) : null}
                                 </AnimatePresence>
                             </div>
                         </div>

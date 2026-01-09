@@ -8,7 +8,11 @@ import { SectionDivider } from "@/components/ui/SectionDivider";
 // Lucide imports removed in favor of Material Symbols
 import { Logo } from "@/components/ui/Logo";
 
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+
 export function Footer() {
+    const [showCopied, setShowCopied] = useState(false);
     return (
         <footer className="bg-secondary/30 pt-8 pb-4 relative">
             <SectionDivider className="absolute -top-[0.5px] left-0 z-40" />
@@ -44,9 +48,31 @@ export function Footer() {
                         </Link>
 
                         <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground font-medium">
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 relative">
                                 <span className="material-symbols-outlined text-[1.1rem] text-primary/60">mail</span>
-                                <a href="mailto:info@naviqure.ai" className="hover:text-primary transition-colors">info@naviqure.ai</a>
+                                <a
+                                    href="mailto:info@naviqure.ai"
+                                    onClick={(e) => {
+                                        navigator.clipboard.writeText("info@naviqure.ai");
+                                        setShowCopied(true);
+                                        setTimeout(() => setShowCopied(false), 2000);
+                                    }}
+                                    className="hover:text-primary transition-colors cursor-pointer"
+                                >
+                                    info@naviqure.ai
+                                </a>
+                                <AnimatePresence>
+                                    {showCopied && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10, x: '-50%' }}
+                                            animate={{ opacity: 1, y: 0, x: '-50%' }}
+                                            exit={{ opacity: 0, y: 10, x: '-50%' }}
+                                            className="absolute bottom-full left-1/2 mb-2 bg-slate-900 text-white text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap pointer-events-none"
+                                        >
+                                            Copied to clipboard!
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                             <span className="hidden sm:inline-block text-primary/40 font-bold">•</span>
                             <div className="flex items-center gap-2">
