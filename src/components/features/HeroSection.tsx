@@ -117,7 +117,7 @@ export function HeroSection() {
                             The Future of Patient Empowerment
                         </div>
 
-                        <h1 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight lg:text-5xl xl:text-6xl mb-4 sm:mb-6 heading-gradient pb-2">
+                        <h1 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight lg:text-5xl mb-4 sm:mb-6 heading-gradient pb-2">
                             Building the Future of AI Powered Chronic Healthcare in India
                         </h1>
 
@@ -239,7 +239,7 @@ export function HeroSection() {
                                                         {/* Placeholder Watermark - Subtle and Visible */}
                                                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
                                                             <p
-                                                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold font-heading text-white/20 tracking-wide select-none whitespace-nowrap"
+                                                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-heading text-white/20 tracking-wide select-none whitespace-nowrap"
                                                                 style={{
                                                                     textShadow: '0 2px 8px rgba(0,0,0,0.2)',
                                                                     transform: 'rotate(-45deg)',

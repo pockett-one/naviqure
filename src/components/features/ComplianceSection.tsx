@@ -24,7 +24,7 @@ export function ComplianceSection() {
                 {/* Section Header */}
                 <div className="mx-auto max-w-2xl text-center mb-12 sm:mb-16">
                     <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Security & Compliance</h2>
-                    <h3 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold font-heading heading-gradient pb-2">
+                    <h3 className="mt-2 text-4xl font-bold font-heading heading-gradient pb-2">
                         Trust Architecture
                     </h3>
                     <p className="mt-4 text-base sm:text-lg text-muted-foreground">
@@ -41,7 +41,7 @@ export function ComplianceSection() {
                                 <span className="flex h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                                 Trust Architecture
                             </div>
-                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold font-heading mb-3 sm:mb-4 heading-gradient pb-2">Built on Trust, Secured by Design</h2>
+                            <h2 className="text-4xl font-bold font-heading mb-3 sm:mb-4 heading-gradient pb-2">Built on Trust, Secured by Design</h2>
                             <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
                                 We implement enterprise-grade security protocols to ensure your health data remains private, secure, and under your absolute control at all times.
                             </p>
@@ -52,7 +52,7 @@ export function ComplianceSection() {
                         {COMPLIANCE_FEATURES.map((feature, i) => {
                             // Custom badges based on card content
                             const badges = ["Sovereign", "NDHM", "Compliant"];
-                            
+
                             return (
                                 <motion.div
                                     key={feature.title}

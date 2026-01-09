@@ -27,7 +27,7 @@ export function WhoWeServeSection() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <h2 className="text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">Target Audience</h2>
-                    <h3 className="text-4xl font-bold font-heading sm:text-5xl heading-gradient pb-2 leading-tight">
+                    <h3 className="text-4xl font-bold font-heading heading-gradient pb-2 leading-tight">
                         Empowering Every <span className="text-primary/60">Stakeholder</span>
                     </h3>
                     <p className="mt-6 text-lg text-muted-foreground font-medium max-w-2xl mx-auto">
@@ -42,7 +42,7 @@ export function WhoWeServeSection() {
                             { label: "HIPAA Compliant", variant: "primary" },
                             { label: "ABHA Ready", variant: "secondary" }
                         ];
-                        
+
                         // Custom badges for each stakeholder
                         const customBadges = [
                             [{ label: "Patient-Focused", variant: "primary" }, { label: "Privacy First", variant: "secondary" }],

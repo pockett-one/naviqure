@@ -16,7 +16,7 @@ export function CareAreasSection() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="mx-auto max-w-2xl text-center mb-16">
                     <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Clinical Focus</h2>
-                    <h3 className="mt-2 text-3xl font-bold font-heading sm:text-4xl heading-gradient pb-2">Treatment Continuity</h3>
+                    <h3 className="mt-2 text-4xl font-bold font-heading heading-gradient pb-2">Treatment Continuity</h3>
                     <p className="mt-4 text-lg text-muted-foreground">Specialized care pathways for high-complexity chronic conditions.</p>
                 </div>
 

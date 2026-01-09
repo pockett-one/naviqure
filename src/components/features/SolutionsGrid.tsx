@@ -18,7 +18,7 @@ export function SolutionsGrid() {
                 <div>
                     <div className="mx-auto max-w-2xl text-center mb-16">
                         <h2 className="text-sm font-semibold text-primary uppercase tracking-wide">Platform</h2>
-                        <h3 className="mt-2 text-3xl font-bold font-heading sm:text-4xl heading-gradient pb-2">
+                        <h3 className="mt-2 text-4xl font-bold font-heading heading-gradient pb-2">
                             Healthcare Intelligence
                         </h3>
                         <p className="mt-4 text-lg text-muted-foreground">
@@ -50,12 +50,12 @@ export function SolutionsGrid() {
                                                     AI Ready
                                                 </div>
                                             </div>
-                                            
+
                                             {/* Title */}
                                             <CardTitle className="text-xl lg:text-2xl font-bold tracking-tight text-primary font-heading leading-tight mb-3 group-hover:text-primary transition-colors">
                                                 {solution.title}
                                             </CardTitle>
-                                            
+
                                             {/* Description */}
                                             <CardDescription className="text-sm lg:text-[15px] font-medium text-muted-foreground leading-relaxed">
                                                 {solution.description}
