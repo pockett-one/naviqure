@@ -1,10 +1,12 @@
 import { HeroSection } from "@/components/features/HeroSection";
-import { SolutionsGrid } from "@/components/features/SolutionsGrid";
-import { WhoWeServeSection } from "@/components/features/WhoWeServeSection";
-import { CareAreasSection } from "@/components/features/CareAreasSection";
-import { TeamSection } from "@/components/features/TeamSection";
-import { ComplianceSection } from "@/components/features/ComplianceSection";
-import { Footer } from "@/components/layout/Footer";
+import dynamic from "next/dynamic";
+
+const SolutionsGrid = dynamic(() => import("@/components/features/SolutionsGrid").then(mod => mod.SolutionsGrid));
+const WhoWeServeSection = dynamic(() => import("@/components/features/WhoWeServeSection").then(mod => mod.WhoWeServeSection));
+const CareAreasSection = dynamic(() => import("@/components/features/CareAreasSection").then(mod => mod.CareAreasSection));
+const TeamSection = dynamic(() => import("@/components/features/TeamSection").then(mod => mod.TeamSection));
+const ComplianceSection = dynamic(() => import("@/components/features/ComplianceSection").then(mod => mod.ComplianceSection));
+const Footer = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer));
 
 export default function Home() {
   const jsonLd = {

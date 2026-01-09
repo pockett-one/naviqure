@@ -7,11 +7,13 @@ import { CookieConsent } from "@/components/ui/CookieConsent";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta",
+  display: 'swap',
 });
 
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -31,9 +33,16 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
+  manifest: '/site.webmanifest',
   openGraph: {
     title: "NaviQure AI | AI Powered Chronic Healthcare in India",
     description: "Transform healthcare data into actionable intelligence with AI-driven analytics. Revolutionizing chronic care management with predictive insights.",
