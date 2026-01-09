@@ -2,7 +2,7 @@
 
 import { CORE_TEAM, BRAND_COLORS } from "@/lib/constants";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Building2, Stethoscope, Briefcase, Flag, FileCheck, ArrowLeft } from "lucide-react";
+import { User, Building2, Stethoscope, Briefcase, Flag, FileCheck, ArrowLeft, Telescope } from "lucide-react";
 import { useState } from "react";
 
 type TeamMember = {
@@ -132,8 +132,8 @@ export function TeamPageContent() {
                                 <h2 className="text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-4">Governance & Leadership</h2>
                                 <h1 className="text-4xl font-bold font-heading heading-gradient pb-2">The Team Behind <span className="text-primary/60">NaviQure</span></h1>
 
-                                <div className="mt-8 sm:mt-12 flex flex-col md:flex-row gap-4 sm:gap-6 text-left max-w-5xl mx-auto">
-                                    <div className="flex-1 p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
+                                <div className="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-left max-w-5xl mx-auto">
+                                    <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
                                         <div className="flex items-center gap-3 mb-3 sm:mb-4">
                                             <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                                                 <Flag className="size-4 sm:size-5" />
@@ -144,7 +144,18 @@ export function TeamPageContent() {
                                             Democratizing specialty care through data-driven empowerment, giving patients the tools to manage complex health journeys with clarity.
                                         </p>
                                     </div>
-                                    <div className="flex-1 p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
+                                    <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
+                                        <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                                            <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                                <Telescope className="size-4 sm:size-5" />
+                                            </span>
+                                            <h4 className="text-primary font-bold text-base sm:text-lg font-heading">Our Vision</h4>
+                                        </div>
+                                        <p className="text-muted-foreground text-sm sm:text-[15px] font-medium leading-relaxed">
+                                            To set the global standard for healthcare platforms through engineering excellence and innovation at scale.
+                                        </p>
+                                    </div>
+                                    <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-primary/10 shadow-[0_8px_30px_rgba(45,57,163,0.06)] backdrop-blur-sm group hover:bg-secondary/10 transition-all duration-500">
                                         <div className="flex items-center gap-3 mb-3 sm:mb-4">
                                             <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                                                 <FileCheck className="size-4 sm:size-5" />
