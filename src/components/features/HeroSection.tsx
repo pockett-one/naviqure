@@ -157,7 +157,7 @@ export function HeroSection() {
                                             initial={{ opacity: 0, y: -5 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -5 }}
-                                            className="absolute top-14 left-0 w-full text-center sm:text-left hidden sm:block pointer-events-none"
+                                            className="absolute top-14 left-0 w-full text-center sm:text-left pointer-events-none"
                                         >
                                             <span className="text-xs font-bold text-green-600 bg-green-50 backdrop-blur-sm px-3 py-1 rounded-full border border-green-200 shadow-sm whitespace-nowrap flex items-center gap-1 w-fit mx-auto sm:mx-0">
                                                 <span className="material-symbols-outlined text-[1rem]">check_circle</span>
@@ -170,7 +170,7 @@ export function HeroSection() {
                                             initial={{ opacity: 0, y: -5 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -5 }}
-                                            className="absolute top-14 left-0 w-full text-center sm:text-left hidden sm:block pointer-events-none"
+                                            className="absolute top-14 left-0 w-full text-center sm:text-left pointer-events-none"
                                         >
                                             <span className="text-xs font-semibold text-primary/80 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-primary/10 shadow-sm whitespace-nowrap">
                                                 Start your data-driven care journey today.
