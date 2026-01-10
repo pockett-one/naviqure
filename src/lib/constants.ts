@@ -44,7 +44,7 @@ export const NAV_LINKS = [
 
 export const SOLUTIONS = [
   {
-    title: "Patient Empowerment SaaS",
+    title: "Patient Empowerment Platform",
     description: "A self-service ecosystem giving patients and caregivers full control over their health data, treatment timelines, and daily care tasks.",
     icon: "pan_tool_alt",
   },

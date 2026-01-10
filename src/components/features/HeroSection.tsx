@@ -2,72 +2,82 @@
 
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { useState, useEffect } from "react";
-import { BRAND_COLORS } from "@/lib/constants";
-
-const HERO_IMAGES = [
-    {
-        src: "/hero-solutions.png",
-        alt: "Advanced Healthcare Solutions",
-        watermark: "Solutions"
-    },
-    {
-        src: "/hero-care-areas.png",
-        alt: "Compassionate Care",
-        watermark: "Care Areas"
-    },
-    {
-        src: "/hero-who-we-serve.png",
-        alt: "Collaborative Healthcare",
-        watermark: "Who We Serve"
-    }
-];
+import { BRAND_COLORS, SOLUTIONS, WHO_WE_SERVE, CARE_AREAS } from "@/lib/constants";
 
 export function HeroSection() {
     const [hoveredCTA, setHoveredCTA] = useState<string | null>(null);
     const [showCopied, setShowCopied] = useState(false);
+    const [currentSection, setCurrentSection] = useState(0);
+    const [isVideoHovered, setIsVideoHovered] = useState(false);
+    const [useFallbackImages, setUseFallbackImages] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [isHovering, setIsHovering] = useState(false);
-    const [direction, setDirection] = useState(0);
-    const [progressKey, setProgressKey] = useState(0);
 
-    // Auto-play carousel
+    // Fallback images for low bandwidth
+    const fallbackImages = [
+        '/assets/hero-fallback-1.jpeg',
+        '/assets/hero-fallback-2.jpeg',
+        '/assets/hero-fallback-3.jpeg'
+    ];
+
+    // Define the three sections for the overlay
+    const overlaySections = [
+        {
+            title: "Our Offerings",
+            items: SOLUTIONS.map(s => s.title)
+        },
+        {
+            title: "Who We Serve",
+            items: WHO_WE_SERVE.map(w => w.title)
+        },
+        {
+            title: "Featured Care Areas",
+            items: CARE_AREAS.map(c => c.title)
+        }
+    ];
+
+    // Detect bandwidth and decide whether to use video or images
     useEffect(() => {
-        if (isHovering) return; // Pause on hover
+        // Check if Network Information API is available
+        const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
+
+        if (connection) {
+            // Use images if:
+            // 1. Save-data mode is enabled
+            // 2. Effective connection type is slow (2g, slow-2g)
+            // 3. Downlink speed is less than 1 Mbps
+            const shouldUseFallback =
+                connection.saveData ||
+                connection.effectiveType === '2g' ||
+                connection.effectiveType === 'slow-2g' ||
+                (connection.downlink && connection.downlink < 1);
+
+            setUseFallbackImages(shouldUseFallback);
+        }
+        // If API not available, default to video (modern browsers)
+    }, []);
+
+    // Auto-rotate through sections
+    useEffect(() => {
+        if (isVideoHovered) return; // Pause on hover
 
         const timer = setInterval(() => {
-            setDirection(1);
-            setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-            setProgressKey((prev) => prev + 1);
+            setCurrentSection((prev) => (prev + 1) % overlaySections.length);
+        }, 7000); // Change section every 7 seconds
+
+        return () => clearInterval(timer);
+    }, [isVideoHovered, overlaySections.length]);
+
+    // Auto-rotate through fallback images if using them
+    useEffect(() => {
+        if (!useFallbackImages || isVideoHovered) return;
+
+        const timer = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % fallbackImages.length);
         }, 5000); // Change image every 5 seconds
 
         return () => clearInterval(timer);
-    }, [isHovering]);
-
-    const handleNext = () => {
-        setDirection(1);
-        setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-        setProgressKey((prev) => prev + 1);
-    };
-
-    const handlePrevious = () => {
-        setDirection(-1);
-        setCurrentImageIndex((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
-        setProgressKey((prev) => prev + 1);
-    };
-
-    const handleThumbnailClick = (index: number) => {
-        setDirection(index > currentImageIndex ? 1 : -1);
-        setCurrentImageIndex(index);
-        setProgressKey((prev) => prev + 1);
-    };
-
-    const handleDotClick = (index: number) => {
-        setDirection(index > currentImageIndex ? 1 : -1);
-        setCurrentImageIndex(index);
-        setProgressKey((prev) => prev + 1);
-    };
+    }, [useFallbackImages, isVideoHovered, fallbackImages.length]);
 
 
     return (
@@ -188,75 +198,114 @@ export function HeroSection() {
                         </div>
                     </motion.div>
 
-                    {/* Visual Content - Smaller, tighter aspect ratios */}
+                    {/* Visual Content - Video with Animated Overlay */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative w-full flex flex-col max-w-lg mx-auto lg:max-w-md"
+                        className="relative w-full flex flex-col max-w-2xl mx-auto lg:max-w-none"
                     >
                         <div className="relative w-full mt-4 lg:mt-0 p-3 bg-white border border-primary/10 rounded-[2rem] shadow-[0_25px_50px_-12px_rgba(41,54,129,0.2)]">
                             <div
-                                className="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden group"
-                                onMouseEnter={() => setIsHovering(true)}
-                                onMouseLeave={() => setIsHovering(false)}
+                                className="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden bg-gradient-to-br from-primary/20 via-secondary/30 to-primary/10"
+                                onMouseEnter={() => setIsVideoHovered(true)}
+                                onMouseLeave={() => setIsVideoHovered(false)}
                             >
-                                {/* Carousel Content */}
-                                <div className="absolute inset-0 z-0">
-                                    {HERO_IMAGES.map((image, index) => {
-                                        const isActive = index === currentImageIndex;
-                                        return (
-                                            <motion.div
-                                                key={index}
-                                                className="absolute inset-0"
-                                                initial={false}
-                                                animate={{ opacity: isActive ? 1 : 0, zIndex: isActive ? 10 : 0 }}
-                                                transition={{ opacity: { duration: 0.8 } }}
-                                            >
-                                                <Image
-                                                    src={image.src}
-                                                    alt={image.alt}
-                                                    fill
-                                                    className="object-cover"
-                                                    priority={index === currentImageIndex}
-                                                    loading={index === currentImageIndex ? "eager" : "lazy"}
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                                            </motion.div>
-                                        );
-                                    })}
+                                {/* Conditional: Video or Fallback Images based on bandwidth */}
+                                {!useFallbackImages ? (
+                                    // Video Element with Performance Optimizations
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        preload="metadata"
+                                        loading="lazy"
+                                        className="absolute inset-0 w-full h-full object-cover"
+                                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%232D39A3' width='800' height='600'/%3E%3C/svg%3E"
+                                    >
+                                        <source src="/assets/hero-video.mp4" type="video/mp4" />
+                                        Your browser does not support the video tag.
+                                    </video>
+                                ) : (
+                                    // Fallback Images for Low Bandwidth
+                                    <div className="absolute inset-0">
+                                        <AnimatePresence mode="wait">
+                                            <motion.img
+                                                key={currentImageIndex}
+                                                src={fallbackImages[currentImageIndex]}
+                                                alt="NaviQure Healthcare"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                transition={{ duration: 0.5 }}
+                                                className="absolute inset-0 w-full h-full object-cover"
+                                            />
+                                        </AnimatePresence>
+                                    </div>
+                                )}
+
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+                                {/* Animated Content Overlay */}
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <AnimatePresence mode="wait">
+                                        <motion.div
+                                            key={currentSection}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -20 }}
+                                            transition={{ duration: 0.6 }}
+                                            className="bg-white/15 backdrop-blur-md w-full h-full flex flex-col items-center justify-center p-8 sm:p-12"
+                                        >
+                                            {/* Section Title */}
+                                            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center gap-2 drop-shadow-lg">
+                                                <span className="material-symbols-outlined text-3xl">
+                                                    {currentSection === 0 ? 'auto_awesome' : currentSection === 1 ? 'groups' : 'favorite'}
+                                                </span>
+                                                {overlaySections[currentSection].title}
+                                            </h3>
+
+                                            {/* Section Items */}
+                                            <ul className="space-y-4 max-w-lg">
+                                                {overlaySections[currentSection].items.map((item, index) => (
+                                                    <motion.li
+                                                        key={item}
+                                                        initial={{ opacity: 0, x: -10 }}
+                                                        animate={{ opacity: 1, x: 0 }}
+                                                        transition={{ delay: 0.2 + index * 0.1 }}
+                                                        className="flex items-start gap-3 text-base sm:text-lg text-white"
+                                                    >
+                                                        <span className="material-symbols-outlined text-white text-xl mt-0.5 flex-shrink-0 drop-shadow-md">
+                                                            check_circle
+                                                        </span>
+                                                        <span className="font-semibold leading-tight drop-shadow-md">{item}</span>
+                                                    </motion.li>
+                                                ))}
+                                            </ul>
+
+                                            {/* Progress Indicators */}
+                                            <div className="flex gap-2 mt-8 justify-center">
+                                                {overlaySections.map((_, index) => (
+                                                    <button
+                                                        key={index}
+                                                        onClick={() => setCurrentSection(index)}
+                                                        className={`h-2 rounded-full transition-all duration-300 ${index === currentSection
+                                                            ? 'w-10 bg-white'
+                                                            : 'w-2 bg-white/50 hover:bg-white/70'
+                                                            }`}
+                                                        aria-label={`Go to ${overlaySections[index].title}`}
+                                                    />
+                                                ))}
+                                            </div>
+                                        </motion.div>
+                                    </AnimatePresence>
                                 </div>
 
-                                {/* Compact Navigation Arrows - Always Visible */}
-                                <button
-                                    onClick={handlePrevious}
-                                    className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-sm flex items-center justify-center text-primary hover:bg-white transition-all hover:scale-110 active:scale-95 border border-primary/10"
-                                    aria-label="Previous image"
-                                >
-                                    <span className="material-symbols-outlined text-xl">chevron_left</span>
-                                </button>
-                                <button
-                                    onClick={handleNext}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-sm flex items-center justify-center text-primary hover:bg-white transition-all hover:scale-110 active:scale-95 border border-primary/10"
-                                    aria-label="Next image"
-                                >
-                                    <span className="material-symbols-outlined text-xl">chevron_right</span>
-                                </button>
-
-                                {/* Labeled Slide Indicators */}
-                                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4 z-30 px-4">
-                                    {HERO_IMAGES.map((image, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => handleDotClick(index)}
-                                            className={`group flex flex-col items-center gap-1 min-w-[60px] transition-all duration-300 ${index === currentImageIndex ? "opacity-100 scale-105" : "opacity-50 hover:opacity-80"}`}
-                                        >
-                                            <span className={`text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white shadow-black/20 drop-shadow-md ${index === currentImageIndex ? "text-shadow-sm" : ""}`}>
-                                                {image.watermark}
-                                            </span>
-                                            <div className={`h-1 rounded-full bg-white shadow-sm transition-all duration-300 ${index === currentImageIndex ? "w-full" : "w-2 group-hover:w-4"}`} />
-                                        </button>
-                                    ))}
+                                {/* NaviQure Watermark - Bottom Right */}
+                                <div className="absolute bottom-4 right-4 z-20 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-md border border-primary/10">
+                                    <span className="text-sm font-bold text-primary tracking-wide">NaviQure AI</span>
                                 </div>
                             </div>
                         </div>
