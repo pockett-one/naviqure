@@ -220,7 +220,6 @@ export function HeroSection() {
                                         muted
                                         playsInline
                                         preload="metadata"
-                                        loading="lazy"
                                         className="absolute inset-0 w-full h-full object-cover"
                                         poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%232D39A3' width='800' height='600'/%3E%3C/svg%3E"
                                     >
