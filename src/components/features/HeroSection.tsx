@@ -207,7 +207,7 @@ export function HeroSection() {
                     >
                         <div className="relative w-full mt-4 lg:mt-0 p-3 bg-white border border-primary/10 rounded-[2rem] shadow-[0_25px_50px_-12px_rgba(41,54,129,0.2)]">
                             <div
-                                className="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden bg-gradient-to-br from-primary/20 via-secondary/30 to-primary/10"
+                                className="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100"
                                 onMouseEnter={() => setIsVideoHovered(true)}
                                 onMouseLeave={() => setIsVideoHovered(false)}
                             >
@@ -221,7 +221,7 @@ export function HeroSection() {
                                         playsInline
                                         preload="metadata"
                                         className="absolute inset-0 w-full h-full object-cover"
-                                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%232D39A3' width='800' height='600'/%3E%3C/svg%3E"
+                                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%23FFFFFF' width='800' height='600'/%3E%3C/svg%3E"
                                     >
                                         <source src="/assets/hero-video.mp4" type="video/mp4" />
                                         Your browser does not support the video tag.
