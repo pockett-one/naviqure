@@ -115,7 +115,7 @@ export function Header() {
                     <div className="flex-1 hidden md:flex items-center justify-end">
                         <div className="hidden lg:flex items-center gap-2 bg-primary text-white border border-primary px-4 py-2 rounded-full shadow-md">
                             <span className="material-symbols-outlined text-[1.3rem]">verified_user</span>
-                            <span className="text-xs font-bold whitespace-nowrap uppercase tracking-wider">HIPAA & ABHA Compliant</span>
+                            <span className="text-xs font-bold whitespace-nowrap uppercase tracking-wider">DPDP ACT & ABHA Compliant</span>
                         </div>
                     </div>
 
@@ -164,7 +164,7 @@ export function Header() {
                                         <div className="h-px bg-muted my-4" />
                                         <div className="flex items-center gap-3 bg-accent/50 border border-border px-4 py-2.5 rounded-xl mb-2">
                                             <span className="material-symbols-outlined text-[1.4rem] text-primary">verified_user</span>
-                                            <span className="text-xs font-bold text-primary uppercase tracking-tight">HIPAA & ABHA Compliant</span>
+                                            <span className="text-xs font-bold text-primary uppercase tracking-tight">DPDP ACT & ABHA Compliant</span>
                                         </div>
                                         <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-full font-semibold shadow-lg shadow-primary/10">Sign In</Button>
                                     </nav>

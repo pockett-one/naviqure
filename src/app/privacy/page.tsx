@@ -23,7 +23,7 @@ export default function PrivacyPage() {
                             Privacy Policy
                         </h1>
                         <p className="text-muted-foreground text-sm mt-1">
-                            Last Updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        Last Updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
                         </p>
                     </div>
                 </div>
@@ -36,133 +36,170 @@ export default function PrivacyPage() {
                     {/* Introduction - Full Width */}
                     <div className="mb-8 p-6 bg-secondary/5 rounded-xl border border-primary/5">
                         <p className="text-base text-slate-700 leading-relaxed font-medium">
-                            At <span className="text-primary font-bold">NaviQure</span>, we are committed to protecting your personal data and respecting your privacy. This policy complies with the <span className="font-bold">Digital Personal Data Protection (DPDP) Act, 2023</span>, and ensures your health data is handled with the highest standards of security.
+                            At <span className="text-primary font-bold">NaviQure AI Health Tech Private Limited</span>, we treat medical data with the highest level of confidentiality and technical rigor. This policy outlines our commitment to your data privacy in accordance with Indian laws.
                         </p>
                     </div>
 
-                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
                         {/* Left Column */}
-                        <div className="space-y-8">
+                        <div className="space-y-8 flex flex-col">
                             {/* Section 1 */}
                             <section>
                                 <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
                                     <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">1</span>
-                                    Information We Collect
+                                    Regulatory Compliance
                                 </h3>
                                 <p className="text-sm text-slate-600 mb-4 leading-relaxed">
-                                    We collect essential data to provide digital healthcare services, including:
+                                    NaviQure is architected to be "Privacy-First." We strictly adhere to:
+                                </p>
+                                <div className="bg-slate-50 border border-slate-100 rounded-xl p-5">
+                                    <ul className="space-y-3 text-sm text-slate-600">
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Digital Personal Data Protection (DPDP) Act, 2023</span></span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">National Digital Health Mission (NDHM)</span> / Ayushman Bharat Digital Mission (ABDM)</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011</span></span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">International Best Practices:</span> While focusing on India, our security protocols are aligned with HIPAA-grade encryption standards to ensure global-level data safety.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                            {/* Section 2 */}
+                            <section>
+                                <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">2</span>
+                                    Data We Collect (The "Data Principal")
+                                </h3>
+                                <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                                    As the "Data Principal" under Indian law, you provide us with:
                                 </p>
                                 <div className="space-y-3">
                                     <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                        <h4 className="text-base font-bold text-slate-800 mb-1">Identity & Contact</h4>
-                                        <p className="text-sm text-slate-500">Name, age, gender, email, phone, address.</p>
+                                        <h4 className="text-base font-bold text-slate-800 mb-1">Personal Information</h4>
+                                        <p className="text-sm text-slate-500">Name, age, contact details, and ABHA ID.</p>
                                     </div>
                                     <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                        <h4 className="text-base font-bold text-slate-800 mb-1">Health Data</h4>
-                                        <p className="text-sm text-slate-500">Medical history, prescriptions, diagnostic reports (via ABHA/NDHM).</p>
+                                        <h4 className="text-base font-bold text-slate-800 mb-1">Sensitive Personal Data</h4>
+                                        <p className="text-sm text-slate-500">Medical history, clinical reports, prescriptions, and imaging files.</p>
+                                    </div>
+                                    <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                        <h4 className="text-base font-bold text-slate-800 mb-1">Consent Logs</h4>
+                                        <p className="text-sm text-slate-500">Digital records of the permissions you grant us.</p>
                                     </div>
                                 </div>
                             </section>
 
-                            {/* Section 3 */}
+                            {/* Section 4 */}
                             <section>
                                 <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">3</span>
-                                    User Rights (DPDP Act)
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">4</span>
+                                    Consent Management
                                 </h3>
                                 <div className="bg-slate-50 border border-slate-100 rounded-xl p-5">
                                     <ul className="space-y-3 text-sm text-slate-600">
-                                        <li className="flex gap-2">
-                                            <span className="font-bold text-slate-800 min-w-[120px]">Right to Access:</span>
-                                            <span>Request a summary of your processed data.</span>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Specified Consent:</span> We only process data for which you have given clear, affirmative consent.</span>
                                         </li>
-                                        <li className="flex gap-2">
-                                            <span className="font-bold text-slate-800 min-w-[120px]">Right to Correction:</span>
-                                            <span>Correct inaccurate or misleading data.</span>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Right to Withdraw:</span> You may withdraw your consent at any time via the NaviQure app settings.</span>
                                         </li>
-                                        <li className="flex gap-2">
-                                            <span className="font-bold text-slate-800 min-w-[120px]">Right to Erasure:</span>
-                                            <span>Request deletion of data (subject to legal retention).</span>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Right to Erasure:</span> In line with the "Right to be Forgotten," you can request the permanent deletion of your data from our servers.</span>
                                         </li>
                                     </ul>
-                                    <div className="mt-4 pt-4 border-t border-slate-200 relative z-10">
-                                        <div className="text-sm text-slate-500 flex items-center gap-1 flex-wrap">
-                                            To exercise these rights, contact
-                                            <span className="relative inline-flex items-center">
-                                                <a
-                                                    onClick={(e) => {
-                                                        navigator.clipboard.writeText("info@naviqure.ai");
-                                                        setShowCopied(true);
-                                                        setTimeout(() => setShowCopied(false), 2000);
-                                                    }}
-                                                    className="text-primary font-bold hover:text-primary/80 transition-colors cursor-pointer"
-                                                >
-                                                    info@naviqure.ai
-                                                </a>
-                                                <AnimatePresence>
-                                                    {showCopied && (
-                                                        <motion.div
-                                                            initial={{ opacity: 0, y: 10, x: '-50%' }}
-                                                            animate={{ opacity: 1, y: 0, x: '-50%' }}
-                                                            exit={{ opacity: 0, y: 10, x: '-50%' }}
-                                                            className="absolute bottom-full left-1/2 mb-2 bg-slate-900 text-white text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap pointer-events-none"
-                                                        >
-                                                            Copied to clipboard!
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                            </span>
-                                            .
-                                        </div>
-                                    </div>
                                 </div>
                             </section>
                         </div>
 
                         {/* Right Column */}
-                        <div className="space-y-8">
-                            {/* Section 2 */}
+                        <div className="space-y-8 flex flex-col">
+                            {/* Section 3 */}
                             <section>
                                 <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">2</span>
-                                    Purpose of Processing
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">3</span>
+                                    Purpose of Processing (The AI Intelligence Layer)
                                 </h3>
+                                <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                                    We process your data via our AI-driven platform for specific, consented purposes:
+                                </p>
                                 <div className="bg-slate-50 rounded-xl border border-slate-100 p-5">
                                     <ul className="space-y-3 text-sm text-slate-600">
                                         <li className="flex items-start gap-2">
                                             <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
-                                            <span>To facilitate health record retrieval and organization.</span>
+                                            <span><span className="font-bold text-slate-800">Longitudinal Record Creation:</span> Structuring fragmented health data into a single, intelligent timeline.</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
-                                            <span>To generate AI-driven clinical insights.</span>
+                                            <span><span className="font-bold text-slate-800">Clinical Navigation:</span> Providing AI-driven summaries to help you and your caregivers navigate chronic care.</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
-                                            <span>To communicate updates and security alerts.</span>
+                                            <span><span className="font-bold text-slate-800">Consent-Based Sharing:</span> Securely sharing specific insights with our medical board (e.g., Major (Dr.) Shrijit Nair or Dr. Kriti Hegde) for clinical validation.</span>
                                         </li>
                                     </ul>
                                 </div>
                             </section>
 
-                            {/* Section 4 & 5 */}
-                            <div className="grid gap-6">
-                                <section>
-                                    <h3 className="text-lg font-bold text-primary font-heading mb-2">Data Sharing</h3>
-                                    <p className="text-sm text-slate-600 mb-2">We do not sell data. We share only with:</p>
-                                    <ul className="text-sm text-slate-500 space-y-2 list-disc pl-4 bg-slate-50 p-4 rounded-lg border border-slate-100">
-                                        <li>Authorized Healthcare Providers</li>
-                                        <li>Trusted Technical Service Providers</li>
-                                        <li>Legal Authorities (when mandated)</li>
+                            {/* Section 5 */}
+                            <section>
+                                <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">5</span>
+                                    Data Security & Storage
+                                </h3>
+                                <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                                    Led by an engineering team from IIT, Adobe, and Microsoft, we employ:
+                                </p>
+                                <div className="bg-slate-50 rounded-xl border border-slate-100 p-5">
+                                    <ul className="space-y-3 text-sm text-slate-600">
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">End-to-End Encryption:</span> Data is encrypted at rest (AES-256) and in transit (TLS 1.3).</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Local Storage:</span> In compliance with Indian data localization preferences, all primary health data is stored on secure servers within India.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Access Control:</span> Only authorized clinical personnel can view your identifiable health information.</span>
+                                        </li>
                                     </ul>
-                                </section>
-                                <section>
-                                    <h3 className="text-lg font-bold text-primary font-heading mb-2">Security</h3>
-                                    <p className="text-sm text-slate-600 p-4 bg-slate-50 rounded-lg border border-slate-100">
-                                        We use encryption in transit/at rest and strict access controls. Our platform is <strong>HIPAA</strong> and <strong>NDHM</strong> compliant.
-                                    </p>
-                                </section>
-                            </div>
+                                </div>
+                            </section>
+
+                            {/* Section 6 */}
+                            <section className="flex-1 flex flex-col">
+                                <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">6</span>
+                                    Third-Party Sharing
+                                </h3>
+                                <p className="text-sm text-slate-600 mb-4 leading-relaxed">NaviQure does not sell your personal health data to third-party marketing or pharmaceutical companies. Data is only shared with:</p>
+                                <div className="bg-slate-50 rounded-xl border border-slate-100 p-5 flex-1">
+                                    <ul className="text-sm text-slate-600 space-y-3">
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Hospitals/Clinics:</span> Only when you are part of a B2B2C program through your provider.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Government/ABDM:</span> For the purpose of linking and fetching records via your ABHA ID.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
                         </div>
                     </div>
 
@@ -170,8 +207,16 @@ export default function PrivacyPage() {
                     <div className="mt-12 pt-8 border-t border-dashed border-slate-200">
                         <section className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                             <div>
-                                <h3 className="text-lg font-bold text-primary font-heading mb-1">Contact DPO</h3>
-                                <p className="text-sm text-muted-foreground">For any privacy concerns or data requests.</p>
+                                <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">7</span>
+                                    Grievance Redressal
+                                </h3>
+                                <p className="text-sm text-muted-foreground">In accordance with the DPDP Act, we have a dedicated officer to handle your privacy concerns.</p>
+                                <p className="text-sm text-muted-foreground mt-2">
+                                    <strong>Grievance Officer</strong><br />
+                                    NaviQure AI Health Tech Private Limited<br />
+                                    Lake Pleasant, Powai, Mumbai.
+                                </p>
                             </div>
 
                             <div className="flex items-center gap-2 relative bg-secondary/5 px-4 py-2 rounded-full border border-primary/5">
@@ -179,13 +224,13 @@ export default function PrivacyPage() {
                                 <strong className="text-slate-700 text-base">Email:</strong>
                                 <a
                                     onClick={(e) => {
-                                        navigator.clipboard.writeText("info@naviqure.ai");
+                                        navigator.clipboard.writeText("legal@naviqure.ai");
                                         setShowCopied(true);
                                         setTimeout(() => setShowCopied(false), 2000);
                                     }}
                                     className="text-primary text-base font-medium cursor-pointer hover:text-primary/80 transition-colors"
                                 >
-                                    info@naviqure.ai
+                                    legal@naviqure.ai
                                 </a>
                                 <AnimatePresence>
                                     {showCopied && (

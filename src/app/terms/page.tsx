@@ -23,7 +23,7 @@ export default function TermsPage() {
                             Terms of Service
                         </h1>
                         <p className="text-muted-foreground text-sm mt-1">
-                            Last Updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+                            Effective Date: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
                         </p>
                     </div>
                 </div>
@@ -35,131 +35,202 @@ export default function TermsPage() {
                     {/* Introduction - Full Width */}
                     <div className="mb-8 p-6 bg-secondary/5 rounded-xl border border-primary/5">
                         <p className="text-base text-slate-700 leading-relaxed font-medium">
-                            Welcome to <span className="text-primary font-bold">NaviQure</span>. By accessing or using our platform, you agree to be bound by these Terms of Service. Please read them carefully. If you do not agree, you may not use our services.
+                            Welcome to <span className="text-primary font-bold">NaviQure AI</span>. These Terms of Service ("Terms") govern your access to and use of the platform and services provided by <span className="text-primary font-bold">NaviQure AI Health Tech Private Limited</span> ("NaviQure," "we," "us," or "our"), a company incorporated under the laws of India and headquartered in Mumbai.
+                        </p>
+                        <p className="text-base text-slate-700 leading-relaxed font-medium mt-3">
+                            By accessing our Service, you agree to be bound by these Terms and the Indian Information Technology Act, 2000, and the Digital Personal Data Protection (DPDP) Act, 2023.
                         </p>
                     </div>
 
-                    {/* Medical Disclaimer - Full Width */}
-                    <div className="mb-12 p-5 bg-amber-50 rounded-xl border border-amber-100">
-                        <h3 className="text-lg font-bold text-amber-900 font-heading mb-2 flex items-center gap-2">
-                            <span className="material-symbols-outlined text-amber-600">warning</span>
-                            Medical Disclaimer
-                        </h3>
-                        <p className="text-sm text-amber-800 leading-relaxed font-medium">
-                            NaviQure is a technology platform, not a medical provider. Insights and summaries are for informational purposes only. <strong className="text-amber-950">Always seek professional medical advice.</strong> Never disregard professional advice because of something you have read on NaviQure.
-                        </p>
-                    </div>
-
-                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
                         {/* Left Column */}
-                        <div className="space-y-8">
-                            {/* Section 1: User Accounts */}
+                        <div className="space-y-8 flex flex-col">
+                            {/* Section 1 */}
                             <section>
                                 <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
                                     <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">1</span>
-                                    User Accounts & Security
+                                    The Service & Medical Disclaimer
                                 </h3>
-                                <div className="p-5 bg-slate-50 rounded-xl border border-slate-100">
-                                    <p className="text-base text-slate-600 leading-relaxed mb-3">
-                                        You are responsible for maintaining the confidentiality of your account credentials.
-                                    </p>
-                                    <ul className="text-sm text-slate-500 space-y-2 list-disc pl-4">
-                                        <li>Notify us immediately of any unauthorized use.</li>
-                                        <li>You are responsible for all activities under your account.</li>
+                                <div className="bg-amber-50 rounded-xl border border-amber-100 p-5">
+                                    <ul className="space-y-3 text-sm text-amber-800">
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-amber-600 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-amber-950">Clinical Intelligence Layer:</span> NaviQure is an AI-driven health intelligence platform. We provide data structuring, longitudinal records, and clinical navigation support.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-amber-600 shrink-0">warning</span>
+                                            <span><span className="font-bold text-amber-950">No Medical Practice:</span> NaviQure is a technology platform and does not provide medical diagnoses, treatment, or prescriptions. Our AI-driven insights are for informational purposes to support clinician-led care.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-amber-600 shrink-0">warning</span>
+                                            <span><span className="font-bold text-amber-950">Clinician-in-the-Loop:</span> All AI-generated summaries must be reviewed by a registered medical practitioner. <strong className="text-amber-950">Never disregard professional medical advice</strong> based on information provided by the platform.</span>
+                                        </li>
                                     </ul>
                                 </div>
                             </section>
 
-                            {/* Section 3: Intellectual Property */}
+                            {/* Section 2 */}
                             <section>
                                 <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">3</span>
-                                    Intellectual Property
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">2</span>
+                                    Digital Personal Data Protection (DPDP) & Consent
                                 </h3>
-                                <p className="text-sm text-slate-600 mb-2 leading-relaxed">
-                                    All rights reserved by NaviQure.
-                                </p>
-                                <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                    <p className="text-sm text-slate-500 leading-relaxed">
-                                        The platform, including software, designs, text, and graphics, is protected by copyright laws. You may not copy, modify, distribute, or reverse-engineer any part of our services.
-                                    </p>
+                                <div className="bg-slate-50 rounded-xl border border-slate-100 p-5">
+                                    <ul className="space-y-3 text-sm text-slate-600">
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Data Principal Rights:</span> In accordance with the DPDP Act 2023, you are the "Data Principal." You have the right to access, correct, or withdraw consent for your personal and sensitive medical data at any time.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Consent Manager:</span> NaviQure acts as a platform for managing your health data. By using the service, you provide "Specified Consent" for NaviQure to process your clinical data via our AI engines to build your health intelligence profile.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">ABHA Integration:</span> Users may link their Ayushman Bharat Health Account (ABHA). By doing so, you authorize NaviQure to fetch and structure records from the ABDM ecosystem.</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </section>
 
+                            {/* Section 3 */}
+                            <section>
+                                <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">3</span>
+                                    User Obligations & Safety
+                                </h3>
+                                <div className="bg-slate-50 rounded-xl border border-slate-100 p-5">
+                                    <ul className="space-y-3 text-sm text-slate-600">
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Accurate Information:</span> To ensure AI accuracy, you must provide true and updated clinical records.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-red-400 shrink-0">warning</span>
+                                            <span><span className="font-bold text-slate-800">Emergency Use:</span> NaviQure is not an emergency response system. In case of a medical emergency, please contact 102, 108, or your nearest hospital immediately.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Account Security:</span> Users are responsible for the safety of their login credentials. We implement industry-standard encryption, but your password remains your responsibility.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
 
                         </div>
 
                         {/* Right Column */}
-                        <div className="space-y-8">
-                            {/* Section 2: Acceptable Use */}
+                        <div className="space-y-8 flex flex-col">
+                            {/* Section 4 */}
                             <section>
                                 <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
-                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">2</span>
-                                    Acceptable Use
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">4</span>
+                                    Intellectual Property
                                 </h3>
                                 <div className="bg-slate-50 rounded-xl border border-slate-100 p-5">
-                                    <p className="text-sm text-slate-600 mb-3 font-medium">You agree NOT to:</p>
                                     <ul className="space-y-3 text-sm text-slate-600">
                                         <li className="flex items-start gap-2">
-                                            <span className="material-symbols-outlined text-[1.1rem] text-red-400 shrink-0">block</span>
-                                            <span>Upload false, misleading, or illegal content.</span>
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span><span className="font-bold text-slate-800">Proprietary Technology:</span> The AI models, clinical navigation logic, and the "NaviQure" brand are the exclusive property of NaviQure AI Health Tech Pvt Ltd, developed by our team of IIT, UCLA, and Microsoft alumni.</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <span className="material-symbols-outlined text-[1.1rem] text-red-400 shrink-0">block</span>
-                                            <span>Violate privacy or IP rights of others.</span>
-                                        </li>
-                                        <li className="flex items-start gap-2">
-                                            <span className="material-symbols-outlined text-[1.1rem] text-red-400 shrink-0">block</span>
-                                            <span>Distribute viruses or attack our infrastructure.</span>
+                                            <span><span className="font-bold text-slate-800">Restrictions:</span> You may not copy, modify, or attempt to reverse-engineer any part of the NaviQure AI engine.</span>
                                         </li>
                                     </ul>
                                 </div>
                             </section>
 
-                            {/* Limitation of Liability */}
+                            {/* Section 5 */}
                             <section>
-                                <h3 className="text-lg font-bold text-primary font-heading mb-2">Limitation of Liability</h3>
-                                <p className="text-sm text-slate-600 p-4 bg-slate-50 rounded-lg border border-slate-100 leading-relaxed">
-                                    To the maximum extent permitted by law, NaviQure shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the service.
-                                </p>
+                                <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">5</span>
+                                    B2B / B2B2C Enterprise Terms
+                                </h3>
+                                <div className="bg-slate-50 rounded-xl border border-slate-100 p-5">
+                                    <p className="text-sm text-slate-600 leading-relaxed">
+                                        Hospitals, clinics, and corporate partners using NaviQure for their patient populations are subject to specific <span className="font-bold text-slate-800">Data Processing Agreements (DPA)</span> and <span className="font-bold text-slate-800">Service Level Agreements (SLA)</span> that comply with the National Health Authority (NHA) guidelines.
+                                    </p>
+                                </div>
                             </section>
 
-                        </div>
-                    </div>
-
-                    {/* Governing Law - Full Width */}
-                    <div className="mt-8 mb-12">
-                        <section className="bg-slate-50 rounded-xl border border-slate-100 p-6 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                            <div className="flex-1">
-                                <h3 className="text-lg font-bold text-primary font-heading mb-2">Governing Law</h3>
-                                <p className="text-base text-slate-600 leading-relaxed">
-                                    These Terms are governed by the laws of <strong>India</strong>. Any disputes are subject to the exclusive jurisdiction of courts in <strong>Mumbai</strong>.
+                            {/* Section 6 */}
+                            <section>
+                                <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">6</span>
+                                    Limitation of Liability
+                                </h3>
+                                <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                                    NaviQure is built with high-scale engineering. However, NaviQure shall not be liable for:
                                 </p>
-                            </div>
-                            <span className="material-symbols-outlined text-slate-300 text-4xl hidden sm:block">gavel</span>
-                        </section>
+                                <div className="bg-slate-50 rounded-xl border border-slate-100 p-5">
+                                    <ul className="space-y-3 text-sm text-slate-600">
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span>Errors in third-party medical data provided by hospitals or diagnostic labs.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span>Clinical decisions made by doctors based on the platform's insights.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">check_small</span>
+                                            <span>Any indirect or consequential damages arising from the use of the service.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                            {/* Section 7 */}
+                            <section className="flex-1 flex flex-col">
+                                <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">7</span>
+                                    Governing Law & Dispute Resolution
+                                </h3>
+                                <div className="bg-slate-50 rounded-xl border border-slate-100 p-5 flex-1 flex flex-col justify-center">
+                                    <ul className="space-y-3 text-sm text-slate-600">
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">gavel</span>
+                                            <span><span className="font-bold text-slate-800">Governing Law:</span> These Terms are governed by the laws of <strong className="text-slate-800">India</strong>.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <span className="material-symbols-outlined text-[1.1rem] text-primary/60 shrink-0">balance</span>
+                                            <span><span className="font-bold text-slate-800">Jurisdiction:</span> Any disputes arising out of these Terms shall be subject to the exclusive jurisdiction of the courts in <strong className="text-slate-800">Mumbai, Maharashtra</strong>.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
                     </div>
 
                     {/* Contact - Full Width */}
                     <div className="mt-12 pt-8 border-t border-dashed border-slate-200">
                         <section className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                             <div>
-                                <h3 className="text-lg font-bold text-primary font-heading mb-1">Questions?</h3>
-                                <p className="text-sm text-muted-foreground">Contact our legal team for clarifications.</p>
+                                <h3 className="text-xl font-bold text-primary font-heading mb-4 flex items-center gap-2">
+                                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs shrink-0">8</span>
+                                    Grievance Redressal
+                                </h3>
+                                <p className="text-sm text-muted-foreground">In compliance with the DPDP Act, we have appointed a Grievance Officer. For any data-related concerns, please contact:</p>
+                                <p className="text-sm text-muted-foreground mt-2">
+                                    <strong>Grievance Officer</strong><br />
+                                    NaviQure AI Health Tech Private Limited<br />
+                                    Lake Pleasant, Powai, Mumbai.
+                                </p>
                             </div>
 
                             <div className="flex items-center gap-2 relative bg-secondary/5 px-4 py-2 rounded-full border border-primary/5">
                                 <span className="material-symbols-outlined text-[1.1rem] text-primary/60">mail</span>
-                                <strong className="text-slate-700 text-sm">Email:</strong>
+                                <strong className="text-slate-700 text-base">Email:</strong>
                                 <a
                                     onClick={(e) => {
-                                        navigator.clipboard.writeText("info@naviqure.ai");
+                                        navigator.clipboard.writeText("legal@naviqure.ai");
                                         setShowCopied(true);
                                         setTimeout(() => setShowCopied(false), 2000);
                                     }}
-                                    className="text-primary font-medium cursor-pointer hover:text-primary/80 transition-colors"
+                                    className="text-primary text-base font-medium cursor-pointer hover:text-primary/80 transition-colors"
                                 >
-                                    info@naviqure.ai
+                                    legal@naviqure.ai
                                 </a>
                                 <AnimatePresence>
                                     {showCopied && (

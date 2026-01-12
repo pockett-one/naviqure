@@ -95,8 +95,6 @@ export function Footer() {
                             <Link href="/privacy" className="text-primary/70 hover:text-primary transition-colors">Privacy Policy</Link>
                             <span className="text-primary/40 font-bold">•</span>
                             <Link href="/terms" className="text-primary/70 hover:text-primary transition-colors">Terms of Service</Link>
-                            <span className="text-primary/40 font-bold">•</span>
-                            <Link href="#" className="text-primary/70 hover:text-primary transition-colors">Business Associate Agreement</Link>
                         </div>
                     </div>
 
@@ -105,9 +103,9 @@ export function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-muted-foreground">
                     <p>© {new Date().getFullYear()} NaviQure AI. All rights reserved.</p>
                     <div className="flex items-center gap-4 mt-2 md:mt-0 font-medium">
-                        <p>HIPAA Compliant</p>
+                        <p>DPDP Act Compliant</p>
                         <span className="text-primary/40 font-bold">•</span>
-                        <p>ABHA Ready</p>
+                        <p>ABHA Compliant</p>
                     </div>
                 </div>
             </div>
