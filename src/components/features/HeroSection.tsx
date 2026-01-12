@@ -88,13 +88,6 @@ export function HeroSection() {
             {/* Dot Pattern Texture */}
             <div className="absolute inset-0 bg-[radial-gradient(var(--color-primary)_1px,transparent_1px)] opacity-[0.08] [background-size:24px_24px] z-0" />
 
-            {/* Watermark - Left aligned and smaller */}
-            <div className="absolute top-4 sm:top-8 left-0 select-none pointer-events-none z-0 overflow-hidden w-full flex justify-start pl-4 sm:pl-8 lg:pl-32">
-                <span className="text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] font-bold text-primary/5 whitespace-nowrap tracking-tight font-heading leading-none">
-                    NAVIQURE
-                </span>
-            </div>
-
             {/* Wave Background - Reduced height */}
             <div className="absolute bottom-0 left-0 right-0 z-0 overflow-hidden h-32 sm:h-48 lg:h-64 pointer-events-none">
                 <svg viewBox="0 0 1440 320" className="w-full h-full block align-bottom" preserveAspectRatio="none">
@@ -119,22 +112,29 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="flex flex-col justify-center text-center lg:text-left pt-4 sm:pt-6"
+                        className="flex flex-col justify-center text-center lg:text-left pt-4 sm:pt-6 relative"
                     >
-                        <div className="inline-flex items-center rounded-full border border-primary/10 bg-white/60 backdrop-blur-sm px-3 py-1 text-xs sm:text-sm font-medium text-primary mb-4 sm:mb-5 mx-auto lg:mx-0 w-fit shadow-sm">
+                        {/* Watermark - Inside left column container */}
+                        <div className="absolute top-4 sm:top-8 left-0 select-none pointer-events-none z-0 w-full pr-4 sm:pr-6 lg:pr-8">
+                            <span className="text-[4rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[8rem] font-bold text-primary/5 tracking-tight font-heading leading-none block whitespace-nowrap overflow-hidden">
+                                NAVIQURE
+                            </span>
+                        </div>
+
+                        <div className="inline-flex items-center rounded-full border border-primary/10 bg-white/60 backdrop-blur-sm px-3 py-1 text-xs sm:text-sm font-medium text-primary mb-6 sm:mb-7 mx-auto lg:mx-0 w-fit shadow-sm relative z-10">
                             <span className="flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-primary/40 mr-2 animate-pulse"></span>
                             The Future of Patient Empowerment
                         </div>
 
-                        <h1 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight lg:text-4xl mb-3 sm:mb-4 heading-gradient pb-1 leading-tight">
+                        <h1 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight lg:text-4xl mb-5 sm:mb-6 heading-gradient pb-1 leading-tight relative z-10">
                             Building the Future of AI Powered Chronic Healthcare in India
                         </h1>
 
-                        <p className="mx-auto lg:mx-0 max-w-xl text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
+                        <p className="mx-auto lg:mx-0 max-w-xl text-base sm:text-lg text-muted-foreground mb-8 sm:mb-10 leading-relaxed relative z-10">
                             NaviQure is transforming India's fragmented health data into actionable insights through content standardization, responsible sharing, and AI-driven intelligence.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 justify-center lg:justify-start relative">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 justify-center lg:justify-start relative z-10">
                             {/* Primary CTA - Request Appointment */}
                             <div
                                 className="relative group w-full sm:w-auto flex flex-col items-center sm:items-start"
@@ -191,7 +191,7 @@ export function HeroSection() {
                             </div>
                         </div>
 
-                        <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-primary/60 font-medium">
+                        <div className="mt-10 sm:mt-12 lg:mt-14 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-primary/60 font-medium relative z-10">
                             <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1rem] opacity-80">shield_locked</span> ABHA Ready</div>
                             <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1rem] opacity-80">vital_signs</span> Clinical Grade</div>
                             <div className="flex items-center gap-1.5"><span className="material-symbols-outlined text-[1rem] opacity-80">auto_awesome</span> AI Powered</div>
