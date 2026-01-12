@@ -70,16 +70,6 @@ export function TeamSection() {
                     />
                 </div>
 
-                {/* Advisory Panel */}
-                <div className="mb-16 sm:mb-20 lg:mb-24">
-                    <div className="flex items-center gap-4 mb-6 sm:mb-8 max-w-5xl mx-auto">
-                        <div className="h-px bg-primary/10 flex-1" />
-                        <h4 className="text-lg sm:text-xl font-bold text-primary font-heading">Advisory Panel</h4>
-                        <div className="h-px bg-primary/10 flex-1" />
-                    </div>
-                    <TeamMembersDisplay memberType="advisory" />
-                </div>
-
                 {/* Founders */}
                 <div className="mb-16 sm:mb-20 lg:mb-24">
                     <div className="flex items-center gap-4 mb-6 sm:mb-8 max-w-5xl mx-auto lg:mb-10">
@@ -88,6 +78,16 @@ export function TeamSection() {
                         <div className="h-px bg-primary/10 flex-1" />
                     </div>
                     <TeamMembersDisplay memberType="founders" />
+                </div>
+
+                {/* Advisory Panel */}
+                <div className="mb-16 sm:mb-20 lg:mb-24">
+                    <div className="flex items-center gap-4 mb-6 sm:mb-8 max-w-5xl mx-auto">
+                        <div className="h-px bg-primary/10 flex-1" />
+                        <h4 className="text-lg sm:text-xl font-bold text-primary font-heading">Advisory Panel</h4>
+                        <div className="h-px bg-primary/10 flex-1" />
+                    </div>
+                    <TeamMembersDisplay memberType="advisory" />
                 </div>
 
                 {/* View Full Team CTA */}

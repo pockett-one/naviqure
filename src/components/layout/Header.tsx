@@ -32,8 +32,8 @@ export function Header() {
                             <div className="flex flex-col">
                                 <span className="text-xl font-bold font-heading text-primary tracking-tight leading-none group-hover:text-primary/80 transition-colors">NaviQure AI</span>
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm text-muted-foreground font-medium tracking-wide group-hover:text-primary/60 transition-colors">Towards Better Health and Tomorrow</span>
-                                    <svg width="24" height="12" viewBox="0 0 24 12" className="text-primary/40">
+                                    <span className="text-sm text-muted-foreground font-medium tracking-wide group-hover:text-primary/60 transition-colors whitespace-nowrap">Towards Better Health and Tomorrow</span>
+                                    <svg width="24" height="12" viewBox="0 0 24 12" className="text-primary/40 flex-shrink-0">
                                         <motion.path
                                             d="M0 6 H4 L6 2 L8 10 L10 6 H24"
                                             fill="transparent"
