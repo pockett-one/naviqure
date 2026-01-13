@@ -10,8 +10,9 @@ export function HeroSection() {
     const [showCopied, setShowCopied] = useState(false);
     const [currentSection, setCurrentSection] = useState(0);
     const [isVideoHovered, setIsVideoHovered] = useState(false);
-    const [useFallbackImages, setUseFallbackImages] = useState(false);
+    const [useFallbackImages, setUseFallbackImages] = useState(false); // Start with false to match SSR
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [mounted, setMounted] = useState(false);
     const videoRef = useRef<HTMLVideoElement>(null);
 
     // Fallback images for low bandwidth
@@ -37,9 +38,27 @@ export function HeroSection() {
         }
     ];
 
-    // Detect bandwidth and decide whether to use video or images
+    // Set mounted state to prevent hydration mismatch
     useEffect(() => {
-        // Check if Network Information API is available
+        setMounted(true);
+    }, []);
+
+    // Detect mobile devices and bandwidth to decide whether to use video or images
+    useEffect(() => {
+        if (!mounted) return; // Wait for client-side mount to prevent hydration mismatch
+
+        // Detect mobile devices - use images on mobile due to autoplay restrictions
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                         window.innerWidth < 768 ||
+                         ('ontouchstart' in window);
+
+        if (isMobile) {
+            // Always use images on mobile devices due to autoplay restrictions
+            setUseFallbackImages(true);
+            return;
+        }
+
+        // For desktop, check bandwidth and decide whether to use video or images
         const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
 
         if (connection) {
@@ -55,8 +74,8 @@ export function HeroSection() {
 
             setUseFallbackImages(shouldUseFallback);
         }
-        // If API not available, default to video (modern browsers)
-    }, []);
+        // If API not available on desktop, default to video (modern browsers)
+    }, [mounted]);
 
     // Auto-rotate through sections
     useEffect(() => {
@@ -307,39 +326,36 @@ export function HeroSection() {
                                 onMouseEnter={() => setIsVideoHovered(true)}
                                 onMouseLeave={() => setIsVideoHovered(false)}
                             >
-                                {/* Conditional: Video or Fallback Images based on bandwidth */}
-                                {!useFallbackImages ? (
-                                    // Video Element with Performance Optimizations
-                                    <video
-                                        ref={videoRef}
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        preload="auto"
-                                        className="absolute inset-0 w-full h-full object-cover"
-                                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%23FFFFFF' width='800' height='600'/%3E%3C/svg%3E"
-                                    >
-                                        <source src="/assets/hero-video.mp4" type="video/mp4" />
-                                        Your browser does not support the video tag.
-                                    </video>
-                                ) : (
-                                    // Fallback Images for Low Bandwidth
-                                    <div className="absolute inset-0">
-                                        <AnimatePresence mode="wait">
-                                            <motion.img
-                                                key={currentImageIndex}
-                                                src={fallbackImages[currentImageIndex]}
-                                                alt="NaviQure Healthcare"
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                exit={{ opacity: 0 }}
-                                                transition={{ duration: 0.5 }}
-                                                className="absolute inset-0 w-full h-full object-cover"
-                                            />
-                                        </AnimatePresence>
-                                    </div>
-                                )}
+                                {/* Video Element - Hidden on mobile to prevent hydration mismatch */}
+                                <video
+                                    ref={videoRef}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    preload="auto"
+                                    className={`absolute inset-0 w-full h-full object-cover ${useFallbackImages ? 'hidden' : ''}`}
+                                    poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%23FFFFFF' width='800' height='600'/%3E%3C/svg%3E"
+                                >
+                                    <source src="/assets/hero-video.mp4" type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                {/* Fallback Images - Shown on mobile or low bandwidth */}
+                                <div className={`absolute inset-0 ${!useFallbackImages ? 'hidden' : ''}`}>
+                                    <AnimatePresence mode="wait">
+                                        <motion.img
+                                            key={currentImageIndex}
+                                            src={fallbackImages[currentImageIndex]}
+                                            alt="NaviQure Healthcare"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.5 }}
+                                            className="absolute inset-0 w-full h-full object-cover"
+                                        />
+                                    </AnimatePresence>
+                                </div>
 
                                 {/* Gradient Overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
