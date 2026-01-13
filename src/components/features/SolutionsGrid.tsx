@@ -28,6 +28,13 @@ export function SolutionsGrid() {
 
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                         {SOLUTIONS.map((solution, index) => {
+                            // Professional badges for each solution
+                            const badges = [
+                                "PATIENT-CENTRIC",  // For Patient Empowerment Platform
+                                "ABHA READY",       // For Intelligent Health Locker
+                                "CAREGIVER SUPPORT" // For Caregiver Co-pilot
+                            ];
+
                             return (
                                 <motion.div
                                     key={solution.title}
@@ -47,7 +54,7 @@ export function SolutionsGrid() {
                                                     </span>
                                                 </div>
                                                 <div className="px-3 py-1 rounded-full bg-secondary text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">
-                                                    AI Ready
+                                                    {badges[index]}
                                                 </div>
                                             </div>
 

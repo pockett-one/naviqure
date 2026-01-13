@@ -4,17 +4,26 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { HMRErrorHandler } from "@/components/HMRErrorHandler";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta",
-  display: 'swap',
+  display: 'swap', // Swap to custom font when loaded
+  preload: true,
+  adjustFontFallback: true,
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'arial'],
+  weight: ['400', '500', '600', '700'],
 });
 
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
-  display: 'swap',
+  display: 'swap', // Swap to custom font when loaded
+  preload: true,
+  adjustFontFallback: true,
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'arial'],
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -97,12 +106,50 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        {/* Preconnect to Google Fonts for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Material Symbols - let Google Fonts stylesheet handle font loading automatically */}
+        <link 
+          rel="stylesheet" 
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" 
+        />
+        {/* Font loading optimization script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                if ('fonts' in document) {
+                  Promise.all([
+                    document.fonts.load('400 1em "Plus Jakarta Sans"'),
+                    document.fonts.load('700 1em "Plus Jakarta Sans"'),
+                    document.fonts.load('400 1em "Outfit"'),
+                    document.fonts.load('600 1em "Outfit"'),
+                    document.fonts.load('700 1em "Outfit"')
+                  ]).then(function() {
+                    document.documentElement.classList.add('fonts-loaded');
+                  }).catch(function() {
+                    // Fallback: mark fonts as loaded after timeout
+                    document.documentElement.classList.add('fonts-loaded');
+                  });
+                  
+                  // Fallback: mark fonts as loaded after a short timeout
+                  setTimeout(function() {
+                    document.documentElement.classList.add('fonts-loaded');
+                  }, 100);
+                } else {
+                  document.documentElement.classList.add('fonts-loaded');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body
         className={`${plusJakartaSans.variable} ${outfit.variable} font-sans antialiased`}
         suppressHydrationWarning
       >
+        <HMRErrorHandler />
         <ErrorBoundary>
           <Header />
           <main>{children}</main>

@@ -81,7 +81,7 @@ export function TeamSection() {
                 </div>
 
                 {/* Advisory Panel */}
-                <div className="mb-16 sm:mb-20 lg:mb-24">
+                <div className="mb-0">
                     <div className="flex items-center gap-4 mb-6 sm:mb-8 max-w-5xl mx-auto">
                         <div className="h-px bg-primary/10 flex-1" />
                         <h4 className="text-lg sm:text-xl font-bold text-primary font-heading">Advisory Panel</h4>
@@ -89,23 +89,6 @@ export function TeamSection() {
                     </div>
                     <TeamMembersDisplay memberType="advisory" />
                 </div>
-
-                {/* View Full Team CTA */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}
-                    className="mt-12 sm:mt-16 text-center"
-                >
-                    <a
-                        href="/team"
-                        className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-primary text-white rounded-full font-semibold text-sm sm:text-base hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-105"
-                    >
-                        View Full Team
-                        <span className="material-symbols-outlined text-[1.2rem]">arrow_forward</span>
-                    </a>
-                </motion.div>
 
             </div>
         </section>

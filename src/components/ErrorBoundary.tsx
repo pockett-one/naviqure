@@ -19,11 +19,32 @@ export class ErrorBoundary extends Component<Props, State> {
     };
 
     public static getDerivedStateFromError(error: Error): State {
+        // Handle ChunkLoadError (HMR errors) - auto-reload in development
+        if (error.name === 'ChunkLoadError' || error.message.includes('chunk') || error.message.includes('Failed to fetch dynamically imported module')) {
+            if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+                // Auto-reload for HMR chunk errors in development
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            }
+        }
         return { hasError: true, error };
     }
 
     public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
         console.error("Uncaught error:", error, errorInfo);
+
+        // Handle ChunkLoadError specifically - these are usually HMR issues
+        if (error.name === 'ChunkLoadError' || error.message.includes('chunk') || error.message.includes('Failed to fetch dynamically imported module')) {
+            if (process.env.NODE_ENV === 'development') {
+                console.log('ChunkLoadError detected - this is usually a development HMR issue. Reloading...');
+                // Don't show error UI for HMR errors, just reload
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+                return;
+            }
+        }
 
         // In production, you could send this to an error reporting service
         // Example: Sentry.captureException(error, { extra: errorInfo });
@@ -36,6 +57,29 @@ export class ErrorBoundary extends Component<Props, State> {
 
     public render() {
         if (this.state.hasError) {
+            // Don't show error UI for ChunkLoadError in development - it will auto-reload
+            if (
+                this.state.error &&
+                (this.state.error.name === 'ChunkLoadError' ||
+                 this.state.error.message.includes('chunk') ||
+                 this.state.error.message.includes('Failed to fetch dynamically imported module')) &&
+                process.env.NODE_ENV === 'development'
+            ) {
+                return (
+                    <div className="min-h-screen bg-gradient-to-b from-white to-secondary/40 flex items-center justify-center p-4">
+                        <div className="text-center">
+                            <div className="inline-flex items-center gap-3 text-primary">
+                                <span className="material-symbols-outlined text-4xl animate-spin">refresh</span>
+                                <span className="text-lg font-semibold">Reloading page...</span>
+                            </div>
+                            <p className="text-sm text-muted-foreground mt-4">
+                                HMR chunk update in progress
+                            </p>
+                        </div>
+                    </div>
+                );
+            }
+
             return (
                 <div className="min-h-screen bg-gradient-to-b from-white to-secondary/40 flex items-center justify-center p-4">
                     <div className="max-w-2xl w-full bg-white rounded-3xl shadow-2xl border border-primary/10 p-8 sm:p-12">

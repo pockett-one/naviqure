@@ -22,6 +22,13 @@ export function CareAreasSection() {
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                     {CARE_AREAS.map((area, index) => {
+                        // Professional badges for each care area
+                        const badges = [
+                            "ONCOLOGY",         // For Oncology (Cancer Care)
+                            "NEUROLOGY",        // For Neurological Care
+                            "CARDIOVASCULAR"    // For Metabolic & Cardiovascular
+                        ];
+
                         return (
                             <motion.div
                                 key={area.title}
@@ -41,7 +48,7 @@ export function CareAreasSection() {
                                                 </span>
                                             </div>
                                             <div className="px-3 py-1 rounded-full bg-secondary text-primary text-[10px] font-bold uppercase tracking-wider ring-1 ring-primary/10">
-                                                Specialization
+                                                {badges[index]}
                                             </div>
                                         </div>
 

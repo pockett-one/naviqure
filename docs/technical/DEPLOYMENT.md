@@ -29,10 +29,22 @@ This will:
 
 ### Step 2: Test Locally (Optional but Recommended)
 
-Before delivering to the client, test the static build:
+**⚠️ Important:** You cannot open `index.html` directly from the file system (using `file://` protocol) because Next.js uses absolute paths for assets. You must use a local web server.
 
+**Option 1: Using npm script (Recommended)**
 ```bash
-npx serve out
+npm run preview
+```
+
+**Option 2: Using serve directly**
+```bash
+npx serve out -p 3000
+```
+
+**Option 3: Using Python (if installed)**
+```bash
+cd out
+python3 -m http.server 3000
 ```
 
 Then open `http://localhost:3000` in your browser and verify:
@@ -42,6 +54,7 @@ Then open `http://localhost:3000` in your browser and verify:
 - ✅ Navigation works
 - ✅ Images display properly
 - ✅ Responsive design works on mobile
+- ✅ CSS and JavaScript load correctly
 
 ### Step 3: Package for Delivery
 

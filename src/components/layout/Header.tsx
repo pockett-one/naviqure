@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
 import { useState, useEffect } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
 export function Header() {
     const pathname = usePathname();
@@ -21,16 +21,28 @@ export function Header() {
     }, []);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-muted bg-white/90 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 shadow-lg shadow-primary/5 transition-all duration-300">
+        <header 
+            className="sticky top-0 z-50 w-full border-b border-muted bg-white/90 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 shadow-lg shadow-primary/5 transition-all duration-300"
+            style={{
+                fontFamily: 'var(--font-outfit), system-ui, -apple-system, sans-serif',
+            }}
+        >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex h-20 items-center">
 
                     {/* Logo area */}
                     <div className="flex-1 flex items-center justify-start">
-                        <Link href="/" className="flex items-center gap-3 group">
-                            <Logo className="h-10 w-10 transition-transform" />
+                        <Link href="/" className="flex items-center gap-3 group" aria-label="NaviQure AI Home">
+                            <Logo className="h-10 w-10 transition-transform flex-shrink-0" />
                             <div className="flex flex-col">
-                                <span className="text-xl font-bold font-heading text-primary tracking-tight leading-none group-hover:text-primary/80 transition-colors">NaviQure AI</span>
+                                <span 
+                                    className="text-xl font-bold font-heading text-primary tracking-tight leading-none group-hover:text-primary/80 transition-colors"
+                                    style={{
+                                        fontFamily: 'var(--font-plus-jakarta), system-ui, -apple-system, sans-serif',
+                                    }}
+                                >
+                                    NaviQure AI
+                                </span>
                                 <div className="flex items-center gap-2">
                                     <span className="text-sm text-muted-foreground font-medium tracking-wide group-hover:text-primary/60 transition-colors whitespace-nowrap">Towards Better Health and Tomorrow</span>
                                     <svg width="24" height="12" viewBox="0 0 24 12" className="text-primary/40 flex-shrink-0">
@@ -57,7 +69,12 @@ export function Header() {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center space-x-2">
+                    <nav 
+                        className="hidden md:flex items-center space-x-2"
+                        style={{
+                            fontFamily: 'var(--font-outfit), system-ui, -apple-system, sans-serif',
+                        }}
+                    >
                         {NAV_LINKS.map((link) => (
                             <div
                                 key={link.label}
@@ -76,7 +93,10 @@ export function Header() {
                                 >
                                     {link.label}
                                     {'subLinks' in link && (
-                                        <span className={cn("material-symbols-outlined text-[1.2rem] transition-transform duration-300", hoveredLink === link.label && "rotate-180")}>
+                                        <span 
+                                            className={cn("material-symbols-outlined text-[1.2rem] transition-transform duration-300 flex-shrink-0", hoveredLink === link.label && "rotate-180")}
+                                            aria-hidden="true"
+                                        >
                                             expand_more
                                         </span>
                                     )}
@@ -114,7 +134,7 @@ export function Header() {
                     {/* Contact / CTA */}
                     <div className="flex-1 hidden md:flex items-center justify-end">
                         <div className="hidden lg:flex items-center gap-2 bg-primary text-white border border-primary px-4 py-2 rounded-full shadow-md">
-                            <span className="material-symbols-outlined text-[1.3rem]">verified_user</span>
+                            <span className="material-symbols-outlined text-[1.3rem] flex-shrink-0" aria-hidden="true">verified_user</span>
                             <span className="text-xs font-bold whitespace-nowrap uppercase tracking-wider">DPDP ACT & ABHA Compliant</span>
                         </div>
                     </div>
@@ -123,18 +143,19 @@ export function Header() {
                     <div className="md:hidden flex items-center text-primary">
                         {!mounted ? (
                             <Button variant="ghost" size="icon" className="h-9 w-9 text-primary hover:bg-muted">
-                                <span className="material-symbols-outlined text-[1.8rem]">menu</span>
+                                <span className="material-symbols-outlined text-[1.8rem] flex-shrink-0" aria-hidden="true">menu</span>
                                 <span className="sr-only">Toggle menu</span>
                             </Button>
                         ) : (
                             <Sheet open={isOpen} onOpenChange={setIsOpen}>
                                 <SheetTrigger asChild>
                                     <Button variant="ghost" size="icon" className="h-9 w-9 text-primary hover:bg-muted">
-                                        <span className="material-symbols-outlined text-[1.8rem]">menu</span>
+                                        <span className="material-symbols-outlined text-[1.8rem] flex-shrink-0" aria-hidden="true">menu</span>
                                         <span className="sr-only">Toggle menu</span>
                                     </Button>
                                 </SheetTrigger>
                                 <SheetContent side="right" className="w-[300px] sm:w-[400px] border-l-border bg-white">
+                                    <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                                     <nav className="flex flex-col gap-2 mt-8">
                                         {NAV_LINKS.map((link) => (
                                             <div key={link.label} className="flex flex-col">
@@ -162,11 +183,10 @@ export function Header() {
                                             </div>
                                         ))}
                                         <div className="h-px bg-muted my-4" />
-                                        <div className="flex items-center gap-3 bg-accent/50 border border-border px-4 py-2.5 rounded-xl mb-2">
-                                            <span className="material-symbols-outlined text-[1.4rem] text-primary">verified_user</span>
-                                            <span className="text-xs font-bold text-primary uppercase tracking-tight">DPDP ACT & ABHA Compliant</span>
+                                        <div className="flex items-center gap-2 bg-primary text-white border border-primary px-4 py-2 rounded-full shadow-md">
+                                            <span className="material-symbols-outlined text-[1.3rem] flex-shrink-0" aria-hidden="true">verified_user</span>
+                                            <span className="text-xs font-bold whitespace-nowrap uppercase tracking-wider">DPDP ACT & ABHA Compliant</span>
                                         </div>
-                                        <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-full font-semibold shadow-lg shadow-primary/10">Sign In</Button>
                                     </nav>
                                 </SheetContent>
                             </Sheet>

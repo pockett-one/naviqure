@@ -170,14 +170,14 @@ export function CookieConsent() {
                             exit={{ scale: 0.9, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeOut" }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+                            className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden"
                         >
                             {/* Modal Header */}
-                            <div className="bg-gradient-to-r from-primary to-primary/90 p-6 text-white">
+                            <div className="bg-gradient-to-r from-primary to-primary/90 p-4 sm:p-6 text-white flex-shrink-0">
                                 <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                        <span className="material-symbols-outlined text-[2rem]">settings</span>
-                                        <h2 className="text-xl sm:text-2xl font-bold font-heading">
+                                    <div className="flex items-center gap-2 sm:gap-3">
+                                        <span className="material-symbols-outlined text-[1.5rem] sm:text-[2rem]">settings</span>
+                                        <h2 className="text-lg sm:text-xl md:text-2xl font-bold font-heading">
                                             Cookie Preferences
                                         </h2>
                                     </div>
@@ -189,32 +189,32 @@ export function CookieConsent() {
                                         <span className="material-symbols-outlined text-[1.5rem]">close</span>
                                     </button>
                                 </div>
-                                <p className="mt-2 text-sm text-white/90">
+                                <p className="mt-2 text-xs sm:text-sm text-white/90">
                                     Manage your cookie preferences. You can enable or disable different types of cookies below.
                                 </p>
                             </div>
 
-                            {/* Modal Content */}
-                            <div className="p-6 overflow-y-auto max-h-[calc(90vh-200px)]">
-                                <div className="space-y-6">
+                            {/* Modal Content - Scrollable */}
+                            <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 min-h-0">
+                                <div className="space-y-4 sm:space-y-6">
                                     {COOKIE_CATEGORIES.map((category) => (
                                         <div
                                             key={category.id}
                                             className="border border-gray-200 rounded-xl p-4 hover:border-primary/30 transition-colors"
                                         >
                                             <div className="flex items-start justify-between gap-4">
-                                                <div className="flex-1">
-                                                    <div className="flex items-center gap-2 mb-2">
-                                                        <h3 className="text-base font-semibold text-gray-900">
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                                                        <h3 className="text-sm sm:text-base font-semibold text-gray-900">
                                                             {category.title}
                                                         </h3>
                                                         {category.required && (
-                                                            <span className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-full">
+                                                            <span className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-full whitespace-nowrap">
                                                                 Always Active
                                                             </span>
                                                         )}
                                                     </div>
-                                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                                                         {category.description}
                                                     </p>
                                                 </div>
@@ -223,7 +223,7 @@ export function CookieConsent() {
                                                 <button
                                                     onClick={() => handleToggle(category.id)}
                                                     disabled={category.required}
-                                                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${preferences[category.id]
+                                                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 flex-shrink-0 ${preferences[category.id]
                                                         ? "bg-primary"
                                                         : "bg-gray-300"
                                                         } ${category.required ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
@@ -240,18 +240,18 @@ export function CookieConsent() {
                                 </div>
                             </div>
 
-                            {/* Modal Footer */}
-                            <div className="border-t border-gray-200 p-6 bg-gray-50">
+                            {/* Modal Footer - Always Visible */}
+                            <div className="border-t border-gray-200 p-4 sm:p-6 bg-gray-50 flex-shrink-0">
                                 <div className="flex flex-col sm:flex-row gap-3 justify-end">
                                     <button
                                         onClick={() => setShowModal(false)}
-                                        className="px-6 py-2.5 text-sm font-semibold text-gray-700 border-2 border-gray-300 rounded-full hover:bg-gray-100 transition-all"
+                                        className="px-6 py-2.5 text-sm font-semibold text-gray-700 border-2 border-gray-300 rounded-full hover:bg-gray-100 transition-all w-full sm:w-auto"
                                     >
                                         Cancel
                                     </button>
                                     <button
                                         onClick={handleSaveCustom}
-                                        className="px-6 py-2.5 text-sm font-semibold text-white bg-primary rounded-full hover:bg-[#1E247D] transition-all shadow-lg shadow-primary/20"
+                                        className="px-6 py-2.5 text-sm font-semibold text-white bg-primary rounded-full hover:bg-[#1E247D] transition-all shadow-lg shadow-primary/20 w-full sm:w-auto"
                                     >
                                         Save Preferences
                                     </button>

@@ -1,11 +1,12 @@
 {
   "name": "naviqure",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "preview": "npx serve out -p 3000",
     "lint": "eslint",
     "generate-favicons": "node scripts/generate-favicons.js",
     "create-ico": "node scripts/create-ico.js",

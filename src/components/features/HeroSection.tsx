@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { BRAND_COLORS, SOLUTIONS, WHO_WE_SERVE, CARE_AREAS } from "@/lib/constants";
 
 export function HeroSection() {
@@ -12,6 +12,7 @@ export function HeroSection() {
     const [isVideoHovered, setIsVideoHovered] = useState(false);
     const [useFallbackImages, setUseFallbackImages] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const videoRef = useRef<HTMLVideoElement>(null);
 
     // Fallback images for low bandwidth
     const fallbackImages = [
@@ -78,6 +79,101 @@ export function HeroSection() {
 
         return () => clearInterval(timer);
     }, [useFallbackImages, isVideoHovered, fallbackImages.length]);
+
+    // Ensure video autoplays and loops on mobile devices, and stays muted
+    useEffect(() => {
+        if (useFallbackImages || !videoRef.current) return;
+
+        const video = videoRef.current;
+
+        // Function to ensure video is muted and plays
+        const ensureVideoPlays = async () => {
+            try {
+                // Always ensure muted - critical for autoplay on all devices
+                video.muted = true;
+                
+                // Set loop explicitly
+                video.loop = true;
+                
+                // Play the video
+                await video.play();
+            } catch (error) {
+                // If autoplay fails, try again after a short delay
+                console.log('Video autoplay attempt, retrying...');
+                setTimeout(() => {
+                    // Ensure muted before retry
+                    video.muted = true;
+                    video.play().catch(() => {
+                        // Silently handle if autoplay is still blocked
+                    });
+                }, 100);
+            }
+        };
+
+        // Prevent unmuting - keep video muted at all times
+        const preventUnmute = () => {
+            if (!video.muted) {
+                video.muted = true;
+            }
+        };
+
+        // Ensure muted on play events
+        const handlePlay = () => {
+            video.muted = true;
+        };
+
+        // Try to play immediately
+        ensureVideoPlays();
+
+        // Also handle when video ends to ensure it loops
+        const handleVideoEnd = () => {
+            if (video.loop) {
+                video.muted = true; // Ensure muted before restarting
+                video.currentTime = 0;
+                video.play().catch(() => {
+                    // Silently handle if play fails
+                });
+            }
+        };
+
+        // Add event listeners to ensure video stays muted
+        video.addEventListener('volumechange', preventUnmute);
+        video.addEventListener('play', handlePlay);
+        video.addEventListener('playing', handlePlay);
+        video.addEventListener('ended', handleVideoEnd);
+
+        // Use Intersection Observer to play video when it's in view (for mobile)
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // Ensure muted before playing when in view
+                        video.muted = true;
+                        ensureVideoPlays();
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        observer.observe(video);
+
+        // Periodically check and enforce muted state (safety net)
+        const muteCheckInterval = setInterval(() => {
+            if (video && !video.muted) {
+                video.muted = true;
+            }
+        }, 500);
+
+        return () => {
+            video.removeEventListener('volumechange', preventUnmute);
+            video.removeEventListener('play', handlePlay);
+            video.removeEventListener('playing', handlePlay);
+            video.removeEventListener('ended', handleVideoEnd);
+            observer.disconnect();
+            clearInterval(muteCheckInterval);
+        };
+    }, [useFallbackImages]);
 
 
     return (
@@ -215,11 +311,12 @@ export function HeroSection() {
                                 {!useFallbackImages ? (
                                     // Video Element with Performance Optimizations
                                     <video
+                                        ref={videoRef}
                                         autoPlay
                                         loop
                                         muted
                                         playsInline
-                                        preload="metadata"
+                                        preload="auto"
                                         className="absolute inset-0 w-full h-full object-cover"
                                         poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%23FFFFFF' width='800' height='600'/%3E%3C/svg%3E"
                                     >
