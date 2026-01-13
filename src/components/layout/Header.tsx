@@ -70,7 +70,7 @@ export function Header() {
 
                     {/* Desktop Navigation */}
                     <nav 
-                        className="hidden md:flex items-center space-x-2"
+                        className="hidden md:flex items-center space-x-1.5"
                         style={{
                             fontFamily: 'var(--font-outfit), system-ui, -apple-system, sans-serif',
                         }}
@@ -85,7 +85,7 @@ export function Header() {
                                 <Link
                                     href={link.href}
                                     className={cn(
-                                        "px-4 py-2 rounded-full text-[15px] font-medium transition-all duration-300 flex items-center gap-1",
+                                        "px-3.5 py-2 rounded-full text-[15.5px] font-medium transition-all duration-300 flex items-center gap-1",
                                         pathname === link.href
                                             ? "bg-secondary text-primary shadow-sm ring-1 ring-primary/10"
                                             : "text-primary hover:bg-muted hover:text-primary/80"
@@ -117,7 +117,7 @@ export function Header() {
                                                         <Link
                                                             key={sub.label}
                                                             href={sub.href}
-                                                            className="block px-4 py-2.5 text-sm font-medium text-primary hover:bg-accent transition-colors rounded-xl"
+                                                            className="block px-3.5 py-2.5 text-[14.5px] font-medium text-primary hover:bg-accent transition-colors rounded-xl"
                                                         >
                                                             {sub.label}
                                                         </Link>
@@ -154,26 +154,31 @@ export function Header() {
                                         <span className="sr-only">Toggle menu</span>
                                     </Button>
                                 </SheetTrigger>
-                                <SheetContent side="right" className="w-[300px] sm:w-[400px] border-l-border bg-white">
+                                <SheetContent side="right" className="w-[300px] sm:w-[400px] border-l-border bg-white flex flex-col overflow-hidden">
                                     <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                                    <nav className="flex flex-col gap-2 mt-8">
+                                    <nav className="flex flex-col gap-1.5 mt-8 overflow-y-auto flex-1 min-h-0 pb-4">
                                         {NAV_LINKS.map((link) => (
                                             <div key={link.label} className="flex flex-col">
                                                 <Link
                                                     href={link.href}
                                                     onClick={() => setIsOpen(false)}
-                                                    className="text-lg font-semibold text-primary hover:bg-muted px-4 py-2 rounded-lg transition-colors"
+                                                    className="text-[18.5px] font-semibold text-primary hover:bg-muted px-3.5 py-2.5 rounded-lg transition-colors flex items-center gap-2"
                                                 >
                                                     {link.label}
+                                                    {'subLinks' in link && (
+                                                        <span className="material-symbols-outlined text-[1.2rem] flex-shrink-0 text-primary/60" aria-hidden="true">
+                                                            expand_more
+                                                        </span>
+                                                    )}
                                                 </Link>
                                                 {'subLinks' in link && (
-                                                    <div className="flex flex-col ml-4 border-l border-border mt-1 mb-2">
+                                                    <div className="flex flex-col ml-4 border-l-2 border-primary/20 mt-0.5 mb-2 pl-3">
                                                         {link.subLinks.map((sub) => (
                                                             <Link
                                                                 key={sub.label}
                                                                 href={sub.href}
                                                                 onClick={() => setIsOpen(false)}
-                                                                className="text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted px-4 py-2 rounded-lg transition-colors"
+                                                                className="text-[14.5px] font-medium text-muted-foreground hover:text-primary hover:bg-muted px-3 py-2 rounded-lg transition-colors"
                                                             >
                                                                 {sub.label}
                                                             </Link>
